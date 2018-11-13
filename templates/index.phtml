@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
-<body class="indexBackground">
+<body>
 
     <div class="indexButtons">
         <ul>
@@ -30,17 +30,7 @@
         </ul>
     </div>
     </div>
-    <div id="gameApp">
-        <h1>User pick: <em style="color: red">{{userPick}}</em> - ComputerPick: <em style="color: red">{{randPick}}</em></h1>
-        <div>
-            <button @click="choose('rock')">Rock</button>
-            <button @click="choose('paper')">Paper</button>
-            <button @click="choose('scissors')">Scissors</button>
-        </div>
-        <h1> Usersocre: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
-    </div>
-    <script src="js/javascript.js" type="application/javascript"></script>
+    
 
 </body>
-
 </html>
