@@ -27,6 +27,7 @@ h1 {
 }
 
 #playButtonPaper {
+    background-color: grey lighten-1;
     background-image: url(/img/paper.png);
     background-size: 100%;
     background-repeat: no-repeat;
