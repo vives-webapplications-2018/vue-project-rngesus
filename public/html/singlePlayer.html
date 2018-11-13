@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="icon" href="../../Img/icon.png">
     <script src="../js/javascript.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+    <h1>Select difficulty</h1>
+
+    <ul>
+        <li><a class="waves-effect waves-light btn">Easy</a></li>
+        <li><a class="waves-effect waves-light btn">Medium</a></li>
+        <li><a class="waves-effect waves-light btn">Hard</a></li>
+        <li><a class="waves-effect waves-light btn">Impossible</a></li>
+    </ul>
     <div id="gameApp">
         <h1>User pick: <em style="color: red">{{userPick}}</em> - ComputerPick: <em style="color: red">{{randPick}}</em></h1>
         <div>
@@ -16,7 +31,9 @@
             <button @click="choose('scissors')">Scissors</button>
         </div>
         <h1> Userscore: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
-    </div>
+    
     <script src="js/javascript.js" type="application/javascript"></script>
+</div>
 </body>
+
 </html>
