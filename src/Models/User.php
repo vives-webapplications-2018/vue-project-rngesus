@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RNGesus extends Model 
+class User extends Model 
 {
     public $timestamps = false;
 }

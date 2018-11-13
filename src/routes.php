@@ -2,7 +2,9 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use \App\Models\RNGesus;
+use \App\Models\User;
+use \App\Models\Container;
+
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
@@ -11,9 +13,9 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 $app->get('/scoreboard', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/scoreboard' route");
-    $users = RNGesus::all();
-    foreach ($users as $RNGesus) {
-        Container::container($RNGesus->username , $RNGesus->score);  
+    $users = User::all();
+    foreach ($users as $User) {
+        Container::container($User->username , $User->score);  
     }
     return $this->renderer->render($response, 'scoreboard.phtml', $args);
 });
