@@ -29,7 +29,7 @@ var app = new Vue({
                 } else if (this.randPick === 'scissors') {
                     this.computerScore++;
                 } else {
-                    console.log('Draw');
+                 
                 }
             } else {
                 if (this.randPick === 'rock') {
@@ -37,7 +37,7 @@ var app = new Vue({
                 } else if (this.randPick === 'paper') {
                     this.userScore++;
                 } else {
-                    console.log('Draw');
+                
                 }
             }
         }
