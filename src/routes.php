@@ -13,7 +13,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 
 $app->get('/scoreboard', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/scoreboard' route");
-    $users = User::all();
+    $users = User::orderBy('score', 'DESC')->get();
     foreach ($users as $User) {
         Container::container($User->username , $User->score);  
     }
