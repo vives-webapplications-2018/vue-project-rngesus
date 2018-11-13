@@ -19,6 +19,7 @@
         <div class="nav-wrapper">
             <a href="/" class="brand-logo center">Logo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down ">
+                <li><a href="/">Home</a></li>
                 <li class=""><a href="/instructions">Instructions</a></li>
                 <li><a href="/credits">Credits</a></li>
                 <li><a href="/scoreboard">Scoreboard</a></li>
@@ -30,21 +31,10 @@
 
     <ul class="center">
         <li><a href="/play" class="waves-effect waves-light btn">Easy</a></li>
-        <li><a class="waves-effect waves-light btn">Medium</a></li>
-        <li><a class="waves-effect waves-light btn">Hard</a></li>
-        <li><a class="waves-effect waves-light btn">Impossible</a></li>
+        <li><a href="/play" class="waves-effect waves-light btn">Medium</a></li>
+        <li><a href="/play" class="waves-effect waves-light btn">Hard</a></li>
+        <li><a href="/play" class="waves-effect waves-light btn">Impossible</a></li>
     </ul>
-    <div id="gameApp">
-        <h1>User pick: <em style="color: red">{{userPick}}</em> - ComputerPick: <em style="color: red">{{randPick}}</em></h1>
-        <div>
-            <button @click="choose('rock')">Rock</button>
-            <button @click="choose('paper')">Paper</button>
-            <button @click="choose('scissors')"><img src="img/schaar.png" alt="schaar" width="50" height="60"></button>
-        </div>
-        <h1> Usersocre: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
-        <h1><span style="color: red">{{result}} <br> {{winning}}</span></h1>
-    </div>
-
 
 </body>
 
