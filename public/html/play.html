@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../img/icon.png">
 
-    <script src="../js/javascript.js"></script>
+    <script src="js/singleplayer.js" type="application/javascript"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -33,14 +33,32 @@
         </div>
     </nav>
 
-    <div class="center" id="gameApp">
-        <h1>User pick: <em style="color: red">{{userPick}}</em> - ComputerPick: <em style="color: red">{{randPick}}</em></h1>
-        <h1> Usersocre: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
-        <h1><span style="color: red">{{result}} <br> {{winning}}</span></h1>
+    <div id="gameApp">
+        <div class="row">
+            <div class="col s6">
+            </div>
+            <div class="col s6">
+                <h1>User pick: <em>{{userPick}}</em> - ComputerPick: <em>{{randPick}}</em></h1>
+            </div>
+            <div class="col s6">
+            </div>
+            <div class="col s6">
+                <h1> Usersocre: <span>{{ userScore }}</span> - Computerscore: <span>{{ computerScore }}</span></h1>
+            </div>
+            <div class="col s6">
+            </div>
+            <div class="col s6">
+                <h1><span>{{result}} <br> {{winning}}</span></h1>
+            </div>
+        </div>
         <div>
-            <button @click="choose('rock')">Rock</button>
-            <button @click="choose('paper')">Paper</button>
-            <button @click="choose('scissors')"><img src="img/schaar.png" alt="schaar" width="50" height="60"></button>
+            <div class="row">
+                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light" @click="choose('rock')"></button></div>
+                <div class="col s1"></div>
+                <div class="col s11"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light" @click="choose('paper')"></button></div>
+                <div class="col s12"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light" @click="choose('scissors')"></button></button>
+                </div>
+            </div>
         </div>
     </div>
 
