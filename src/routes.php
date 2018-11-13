@@ -15,7 +15,7 @@ $app->get('/scorebord', function (Request $request, Response $response, array $a
     foreach ($data as $RNGesus) {
         Container::container($RNGesus->username , $RNGesus->score);  
     }
-    return $this->renderer->render($response, 'scorebord.phtml', $args);
+    return $this->renderer->render($response, 'scoreboard.phtml', $args);
 });
 
 $app->get('/credits', function (Request $request, Response $response, array $args) {
