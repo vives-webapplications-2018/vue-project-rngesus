@@ -7,11 +7,11 @@ class Container
     {   
         echo '<li class="collection-item">   
             <span class="purple-text text-darken-2" >
-            ' . $username . '
+            name:   ' . $username . '
             </span>
             </li>
             <li class="collection-item">
-            description: ' . $score .'
+            score: ' . $score .'
             </li>';
     }
 
