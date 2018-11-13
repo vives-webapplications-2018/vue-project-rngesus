@@ -28,6 +28,17 @@
             <li><a href="../public/html/credits.html" class="waves-effect waves-light btn">Credits</a></li>
         </ul>
     </div>
+    </div>
+    <div id="gameApp">
+        <h1>User pick: <em style="color: red">{{userPick}}</em> - ComputerPick: <em style="color: red">{{randPick}}</em></h1>
+        <div>
+            <button @click="choose('rock')">Rock</button>
+            <button @click="choose('paper')">Paper</button>
+            <button @click="choose('scissors')">Scissors</button>
+        </div>
+        <h1> Usersocre: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
+    </div>
+    <script src="js/javascript.js" type="application/javascript"></script>
 
 </body>
 
