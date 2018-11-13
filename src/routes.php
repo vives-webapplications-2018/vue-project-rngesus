@@ -38,9 +38,9 @@ $app->get('/play', function (Request $request, Response $response, array $args) 
     return $this->renderer->render($response, '../public/html/play.html', $args);
 });
 
-$app->get('/singleplayer', function (Request $request, Response $response, array $args) {
-    $this->logger->info("GET '/singleplayer' route");
-    return $this->renderer->render($response, '../public/html/singleplayer.html', $args);
+$app->get('/singlePlayer', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/singlePlayer' route");
+    return $this->renderer->render($response, '../public/html/singlePlayer.html', $args);
 });
 
 $app->get('/index', function (Request $request, Response $response, array $args) {
