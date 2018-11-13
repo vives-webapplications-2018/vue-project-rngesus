@@ -10,10 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../Img/icon.png">
-    <script src="../js/javascript.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="js/singleplayer.js" type="application/javascript"></script>
 </head>
-<body>
+<body class="indexBackground">
 
     <h1>Select difficulty</h1>
 
@@ -30,9 +30,10 @@
             <button @click="choose('paper')">Paper</button>
             <button @click="choose('scissors')">Scissors</button>
         </div>
-        <h1> Userscore: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
+        <h1> Usersocre: <span style="color: red">{{ userScore }}</span> - Computerscore: <span style="color: red">{{ computerScore }}</span></h1>
+        <h1><span style="color: red">{{result}} <br> {{winning}}</span></h1>
+    </div>
     
-    <script src="js/javascript.js" type="application/javascript"></script>
 </div>
 </body>
 
