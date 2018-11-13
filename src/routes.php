@@ -2,17 +2,17 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-
+use \App\Models\RNGesus;
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
     return $response->withRedirect('/index', 301);
 });
 
-$app->get('/scorebord', function (Request $request, Response $response, array $args) {
-    $this->logger->info("GET '/scorebord' route");
-    $data = RNGesus::all();
-    foreach ($data as $RNGesus) {
+$app->get('/scoreboard', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/scoreboard' route");
+    $users = RNGesus::all();
+    foreach ($users as $RNGesus) {
         Container::container($RNGesus->username , $RNGesus->score);  
     }
     return $this->renderer->render($response, 'scoreboard.phtml', $args);
