@@ -3,9 +3,13 @@ body {
 }
 
 .indexButtons {
-    margin: center;
+    margin: 10px;
+    padding: 10px;
 }
 
-.indexBackground {
+#indexBackground {
     background-image: url(/img/background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 50%;
 }
