@@ -54,3 +54,4 @@ $app->get('/mode', function (Request $request, Response $response, array $args) 
     $this->logger->info("GET '/mode' route");
     return $this->renderer->render($response, '../public/html/mode.html', $args);
 });
+
