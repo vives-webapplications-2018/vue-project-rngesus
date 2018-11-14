@@ -42,3 +42,13 @@ h1 {
     background-position: center;
     padding: 75px;
 }
+<<<<<<< HEAD
+=======
+
+.logo {
+    background-image: url(/img/.logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+>>>>>>> f756372b21c995cd0d7a38c9a63292a8a34edd02
