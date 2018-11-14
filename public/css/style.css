@@ -49,3 +49,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.float {
+    float: left;
+}
