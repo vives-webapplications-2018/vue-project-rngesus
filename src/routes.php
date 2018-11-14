@@ -15,7 +15,9 @@ $app->get('/scoreboard', function (Request $request, Response $response, array $
     $this->logger->info("GET '/scoreboard' route");
     $users = User::orderBy('score', 'DESC')->get();
     foreach ($users as $User) {
+        Container::table();
         Container::container($User->username , $User->score);  
+        Container::tableEnd();
     }
     return $this->renderer->render($response, 'scoreboard.phtml', $args);
 });

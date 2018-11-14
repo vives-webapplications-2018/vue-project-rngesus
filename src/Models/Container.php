@@ -4,15 +4,25 @@ namespace App\Models;
 class Container
 {
     public function container($username, $score)
-    {   
-        echo '<li class="collection-item">   
-            <span class="purple-text text-darken-2" >
-            name:   ' . $username . '
-            </span>
-            </li>
-            <li class="collection-item">
-            score: ' . $score .'
-            </li>';
+    {
+        echo    '<tr>
+                <td>' . $username . '</td>
+                <td>' . $score . '</td>
+                </tr>';
     }
-
+    public function table()
+    {
+        echo '<table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>';
+    }
+    public function tableEnd(){
+        echo '</tbody>
+        </table>';  
+    }
 }
