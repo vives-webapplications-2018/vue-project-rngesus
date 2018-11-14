@@ -14,11 +14,11 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $app->get('/scoreboard', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/scoreboard' route");
     $users = User::orderBy('score', 'DESC')->get();
+    Container::table();
     foreach ($users as $User) {
-        Container::table();
         Container::container($User->username , $User->score);  
-        Container::tableEnd();
     }
+    Container::tableEnd();
     return $this->renderer->render($response, 'scoreboard.phtml', $args);
 });
 
