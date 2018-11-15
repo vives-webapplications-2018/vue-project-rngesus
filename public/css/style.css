@@ -50,6 +50,9 @@ h1 {
     background-position: center;
 }
 
-.background {
-    position: absolute;
+#background {
+    background-image:url(/img/Background.png);
+    align-content: center;
+    width:1000px;
+    height:370px;
 }
