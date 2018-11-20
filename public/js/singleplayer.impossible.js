@@ -1,6 +1,6 @@
 window.onload = function() {
     var app = new Vue({
-        el: "#gameApp",
+        el: "#gameAppimp",
         data: function() {
             return {
                 userPick: null,
@@ -15,7 +15,7 @@ window.onload = function() {
             choose: function(pick) {
                 this.userPick = pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                this.randPick = picks[Math.floor(Math.random() * picks.length)];
+               // this.randPick = picks[Math.floor(Math.random() * picks.length)];
                 this.setScore();
             },
             setScore: function() {
@@ -60,17 +60,12 @@ window.onload = function() {
                  if (this.computerScore ==10 ) {
                     alert("COMPUTER WINS,YOU LOSE!");
                     window.location.href = "/";
-                    }
+                }
                      else if (this.userScore ==10 ){
-                        alert("You Win,CONGRATULTIONS!");
+                        alert("CONGRATULTIONS!, You Win");
                         window.location.href = "/"; }
                         else{
-
-                        }
-                //  } else if (this.userScore == 6) {
-                //      this.winning = "user won the game with " + this.userScore + " points";
-                //  } 
-                
+                }
             }
         }
     });
