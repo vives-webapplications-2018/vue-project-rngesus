@@ -1,6 +1,6 @@
 window.onload = function() {
     var app = new Vue({
-        el: ".gameApp",
+        el: "#gameApp",
         data: function() {
             return {
                 userPick: null,
