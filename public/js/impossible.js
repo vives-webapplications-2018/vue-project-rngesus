@@ -15,16 +15,16 @@ window.onload = function() {
             choose: function(pick) {
                 this.userPick = pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                this.randPick = picks[Math.floor(Math.random() * picks.length)];
+                if(this.userPick == 'rock'){
+                    console.log(pick);
+                    this.randPick =='paper';}
+                    else if (this.userPick == 'paper'){
+                       this.randPick =='scissor';}
+                   else{
+                       this.randPick =='rock';}
                 this.setScore();
             },
-                // if(this.userPick == 'rock'){
-                //     console.log(pick);
-                //     this.randPick =='paper';}
-                //     else if (this.userPick == 'paper'){
-                //        this.randPick =='scissor';}
-                //    else{
-                //        this.randPick =='rock';}
+       
             
           
             
