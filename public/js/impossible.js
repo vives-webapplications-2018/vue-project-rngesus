@@ -14,18 +14,20 @@ window.onload = function() {
         methods: {
             choose: function(pick) {
                 this.userPick = pick;
+                console.log(pick);
                 const picks = ['rock', 'paper', 'scissors'];
-                this.randPick = 0;
+                if(this.userPick == 'rock'){
+                    console.log(pick);
+                    this.randPick =='paper';}
+                    else if (this.userPick == 'paper'){
+                       this.randPick =='scissor';}
+                   else{
+                       this.randPick =='rock';}
 
             },
-            // impossible: function(pick){
-            //  if(this.userPick == 'rock'){
-            //  this.randPick =='paper';}
-            //  else if (this.userPick == 'paper'){
-            //     this.randPick =='scissor';}
-            // else{
-            //     this.randPick =='rock';}
-            // },
+          
+            
+            
 
             setScore: function() {
                 if (this.userPick === 'rock') {
