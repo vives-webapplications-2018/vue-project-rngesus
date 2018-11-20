@@ -28,7 +28,7 @@ var options = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
-        //alert("Connected");
+        alert("Connected");
         subscribe();
     },
     //Gets Called if the connection could not be established
@@ -56,8 +56,8 @@ var subscribe = function() {
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
 var publish = function () {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = 'rcp-chat';
-    var qos = 0;
+    var topic = getValue('#pubTopic', settings.publishFallbackTopic);
+    var qos = parseInt($('#pubQos option:selected').val());
     var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
     message.destinationName = topic;
     message.qos = qos;
