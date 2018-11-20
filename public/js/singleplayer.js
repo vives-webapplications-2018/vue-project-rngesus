@@ -57,6 +57,20 @@ window.onload = function() {
                 } else {
                     this.winning = "It's a draw";
                 }
+                 if (this.computerScore ==10 ) {
+                    alert("COMPUTER WINS,YOU LOSE!");
+                    window.location.href = "/";
+                    }
+                     else if (this.userScore ==10 ){
+                        alert("You Win,CONGRATULTIONS!");
+                        window.location.href = "/"; }
+                        else{
+
+                        }
+                //  } else if (this.userScore == 6) {
+                //      this.winning = "user won the game with " + this.userScore + " points";
+                //  } 
+                
             }
         }
     });
