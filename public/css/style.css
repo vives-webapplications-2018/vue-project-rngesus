@@ -1,7 +1,6 @@
 body {
     background-color: #757575;
     color: #fafafa;
-    height: 100%;
 }
 
 h1 {
@@ -10,6 +9,13 @@ h1 {
 
 .buttons {
     margin: 5px;
+}
+
+.indexPlay {
+    font-size: 300%;
+    border-radius: 500px;
+    padding: 3%;
+    text-align: center;
 }
 
 .indexBackground {
@@ -51,18 +57,11 @@ h1 {
     background-position: center;
 }
 
-<<<<<<< HEAD
-#background {
-    background-image:url(/img/Background.png);
-    align-items: center;
-    width:1000px;
-    height:370px;
-=======
 .background {
     background-image: url(/img/Background.png);
     align-content: center;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
->>>>>>> 14f622732c38feb8ab967a2c741865ae744ee517
+    width: auto;
+    height: 600px;
 }
