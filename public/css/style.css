@@ -51,18 +51,10 @@ h1 {
     background-position: center;
 }
 
-<<<<<<< HEAD
-#background {
-    background-image:url(/img/Background.png);
-    align-items: center;
-    width:1000px;
-    height:370px;
-=======
 .background {
     background-image: url(/img/Background.png);
     align-content: center;
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
->>>>>>> 14f622732c38feb8ab967a2c741865ae744ee517
 }
