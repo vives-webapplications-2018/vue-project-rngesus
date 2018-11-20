@@ -56,8 +56,8 @@ var subscribe = function() {
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
 var publish = function () {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = getValue('#pubTopic', settings.publishFallbackTopic);
-    var qos = parseInt($('#pubQos option:selected').val());
+    var topic = 'rpc-chat';
+    var qos = 0;
     var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
     message.destinationName = topic;
     message.qos = qos;
