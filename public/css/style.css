@@ -14,8 +14,9 @@ h1 {
 .indexPlay {
     font-size: 300%;
     border-radius: 500px;
-    padding: 3%;
+    padding: 2%;
     text-align: center;
+    height: auto;
 }
 
 .indexBackground {

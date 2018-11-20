@@ -57,15 +57,13 @@ window.onload = function() {
                 } else {
                     this.winning = "It's a draw";
                 }
-                 if (this.computerScore ==10 ) {
+                if (this.computerScore == 10) {
                     alert("COMPUTER WINS,YOU LOSE!");
                     window.location.href = "/";
-                }
-                     else if (this.userScore ==10 ){
-                        alert("CONGRATULTIONS!, You Win");
-                        window.location.href = "/"; }
-                        else{
-                }
+                } else if (this.userScore == 10) {
+                    alert("Congratulations, You Win!");
+                    window.location.href = "/";
+                } else {}
             }
         }
     });
