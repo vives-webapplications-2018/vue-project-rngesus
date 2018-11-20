@@ -52,7 +52,7 @@ h1 {
 
 #background {
     background-image:url(/img/Background.png);
-    align-content: center;
+    align-items: center;
     width:1000px;
     height:370px;
 }
