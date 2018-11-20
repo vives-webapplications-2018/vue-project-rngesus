@@ -1,7 +1,6 @@
 body {
     background-color: #757575;
     color: #fafafa;
-    height: 100%;
 }
 
 h1 {
@@ -10,6 +9,13 @@ h1 {
 
 .buttons {
     margin: 5px;
+}
+
+.indexPlay {
+    font-size: 300%;
+    border-radius: 500px;
+    padding: 3%;
+    text-align: center;
 }
 
 .indexBackground {
@@ -56,5 +62,6 @@ h1 {
     align-content: center;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
+    width: auto;
+    height: 600px;
 }
