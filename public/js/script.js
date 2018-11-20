@@ -28,7 +28,7 @@ var options = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
-        alert("Connected");
+        //alert("Connected");
         subscribe();
     },
     //Gets Called if the connection could not be established
@@ -50,7 +50,7 @@ var subscribe = function() {
   var topic = 'rpc-chat';
   var qos = 0;
   client.subscribe(topic);
-  alert('Subscribed to ' + topic + ' with QoS ' + qos);
+  //alert('Subscribed to ' + topic + ' with QoS ' + qos);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
@@ -62,5 +62,5 @@ var publish = function () {
     message.destinationName = topic;
     message.qos = qos;
     client.send(message);
-    alert('Published to ' + topic + ' with QoS ' + qos);
+    //alert('Published to ' + topic + ' with QoS ' + qos);
 };
