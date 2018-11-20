@@ -11,15 +11,13 @@ h1 {
     margin: 5px;
 }
 
-<<<<<<< HEAD
-=======
 .indexPlay {
     font-size: 300%;
     border-radius: 500px;
-    padding: 3%;
+    padding: 2%;
     text-align: center;
+    height: auto;
 }
->>>>>>> 0091bd4b30af5245ac7101f4f147957d72bc752f
 
 .indexBackground {
     background-image: url(/img/background.png);

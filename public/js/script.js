@@ -50,17 +50,17 @@ var subscribe = function() {
   var topic = 'rpc-chat';
   var qos = 0;
   client.subscribe(topic);
-  alert('Subscribed to ' + topic + ' with QoS ' + qos);
+  //alert('Subscribed to ' + topic + ' with QoS ' + qos);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
 var publish = function () {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = 'rcp-chat';
+    var topic = 'rpc-chat';
     var qos = 0;
     var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
     message.destinationName = topic;
     message.qos = qos;
     client.send(message);
-    alert('Published to ' + topic + ' with QoS ' + qos);
+    //alert('Published to ' + topic + ' with QoS ' + qos);
 };
