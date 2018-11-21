@@ -17,10 +17,11 @@
 
     <script src="js/singleplayer-easy.js" type="application/javascript"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="../js/keyCheck.js"></script>
 
 </head>
 
-<body>
+<body onload="">
 
     <nav>
         <div class="nav-wrapper grey darken-4">
@@ -45,7 +46,7 @@
                     <div class="row">
                         <div>
                             <div class="row">
-                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
+                                <div class="col s12"><button accesskey="r" id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
                                 <div class="col s2"></div>
                                 <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')"></button></div>
                                 <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')"></button></button>
