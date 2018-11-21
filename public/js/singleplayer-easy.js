@@ -62,7 +62,7 @@ window.onload = function() {
                     window.location.href = "/";
                 } else if (this.userScore == 10) {
                     alert("Congratulations, You Win!");
-                    window.location.href = "/";
+                    window.location.href = "/mode";
                 } else {}
             }
         }

@@ -15,21 +15,23 @@ window.onload = function() {
             choose: function(pick) {
                 this.userPick = pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                this.randPick = 0;
-
+                if (this.userPick == 'rock') {
+                    console.log(pick);
+                    this.randPick == 'paper';
+                } else if (this.userPick == 'paper') {
+                    this.randPick == 'scissor';
+                } else {
+                    this.randPick == 'rock';
+                }
+                this.setScore();
             },
-            // impossible: function(pick){
-            //  if(this.userPick == 'rock'){
-            //  this.randPick =='paper';}
-            //  else if (this.userPick == 'paper'){
-            //     this.randPick =='scissor';}
-            // else{
-            //     this.randPick =='rock';}
-            // },
+
+
+
 
             setScore: function() {
                 if (this.userPick === 'rock') {
-                    if(this.randPick === 'paper') {
+                    if (this.randPick === 'paper') {
                         this.result = "Computer wins";
                         this.computerScore++;
                     } else if (this.randPick === 'scissors') {
@@ -66,15 +68,13 @@ window.onload = function() {
                 } else {
                     this.winning = "It's a draw";
                 }
-                 if (this.computerScore ==10 ) {
+                if (this.computerScore == 10) {
                     alert("COMPUTER WINS,YOU LOSE!");
                     window.location.href = "/";
-                }
-                     else if (this.userScore ==10 ){
-                        alert("CONGRATULTIONS!, You Win");
-                        window.location.href = "/"; }
-                        else{
-                }
+                } else if (this.userScore == 10) {
+                    alert("CONGRATULTIONS!, You Win");
+                    window.location.href = "/";
+                } else {}
             }
         }
     });

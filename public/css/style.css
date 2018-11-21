@@ -9,6 +9,7 @@ h1 {
 
 .buttons {
     margin: 5px;
+    width: 150px;
 }
 
 .indexPlay {
@@ -65,4 +66,11 @@ h1 {
     background-position: center;
     width: auto;
     height: 600px;
+}
+
+.chat {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fafafa;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
