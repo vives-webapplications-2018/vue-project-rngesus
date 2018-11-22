@@ -1,7 +1,10 @@
-window.onload = function() {
-    var app = new Vue({
+/*jshint esversion: 6 */
+
+
+window.onload = () => {
+    const app = new Vue({
         el: "#gameAppimp",
-        data: function() {
+        data() {
             return {
                 userPick: null,
                 aiPick: null,
@@ -12,7 +15,7 @@ window.onload = function() {
             };
         },
         methods: {
-            choose: function(pick) {
+            choose(pick) {
                 this.userPick = pick;
                 console.log(pick);
                 if (this.userPick === 'rock') {
@@ -24,7 +27,7 @@ window.onload = function() {
                 }
                 this.setScore();
             },
-            setScore: function() {
+            setScore() {
                 if (this.userPick === 'rock') {
                     if (this.aiPick === 'paper') {
                         this.result = "Computer wins";
@@ -57,9 +60,9 @@ window.onload = function() {
                     }
                 }
                 if (this.computerScore > this.userScore) {
-                    this.winning = "Computer is winning the game with " + this.computerScore + " points";
+                    this.winning = `Computer is winning the game with ${this.computerScore} points`;
                 } else if (this.computerScore < this.userScore) {
-                    this.winning = "user is winning the game with " + this.userScore + " points";
+                    this.winning = `user is winning the game with ${this.userScore} points`;
                 } 
                 else {
                     this.winning = "It's a draw";}
