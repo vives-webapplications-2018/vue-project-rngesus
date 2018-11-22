@@ -1,10 +1,10 @@
 window.onload = function() {
     var app = new Vue({
-        el: "#gameAppmed",
+        el: "#gameAppMed",
         data: function() {
             return {
                 userPick: null,
-                randPick: null,
+                aiPick: null,
                 userScore: 0,
                 computerScore: 0,
                 result: "",
@@ -15,48 +15,54 @@ window.onload = function() {
             choose: function(pick) {
                 this.userPick = pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                if(this.userPick == 'rock'){
-                    this.randPick =='paper';}
-                    else if (this.userPick == 'paper'){
-                       this.randPick =='scissor';}
-                   else{
-                       this.randPick =='rock';}
+                this.aiPick = picks[Math.floor(Math.random() * picks.length)];
                 this.setScore();
             },
-       
-            
-          
-            
             setScore: function() {
                 if (this.userPick === 'rock') {
-                    if(this.randPick === 'paper') {
+                    if (this.aiPick === 'paper') {
                         this.result = "Computer wins";
                         this.computerScore++;
-                    } else if (this.randPick === 'scissors') {
+                    } else if (this.aiPick === 'scissors') {
                         this.result = "User wins";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'paper') {
-                    if (this.randPick === 'rock') {
+                    if (this.aiPick === 'rock') {
                         this.result = "User wins";
                         this.userScore++;
-                    } else if (this.randPick === 'scissors') {
+                    } else if (this.aidPick === 'scissors') {
                         this.result = "Computer wins";
                         this.computerScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else {
-                    if (this.randPick === 'rock') {
+                    if (this.aiPick === 'rock') {
                         this.result = "Computer wins";
                         this.computerScore++;
-                    } else if (this.randPick === 'paper') {
+                    } else if (this.aiPick === 'paper') {
                         this.result = "User wins";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
+                    }
+                }
+                if (this.userScore % 4 === 0){
+                    if (this.userPick === 'rock') {
+                        this.aiPick = 'paper';
+                        this.result = "Computer wins";
+                        this.computerScore++;
+                    } else if (this.userPick === 'paper') {
+                        this.aiPick = 'scissors';
+                        this.result = "Computer wins";
+                        this.computerScore++;
+                    } else if (this.userPick = 'scissors'){
+                        this.aiPick = 'rock';
+                        this.result = "Computer wins";
+                        this.computerScore++;
                     }
                 }
                 if (this.computerScore > this.userScore) {
@@ -66,14 +72,12 @@ window.onload = function() {
                 } else {
                     this.winning = "It's a draw";
                 }
-                 if (this.computerScore ==10 ) {
+                if (this.computerScore === 10) {
                     alert("COMPUTER WINS,YOU LOSE!");
                     window.location.href = "/";
-                }
-                     else if (this.userScore ==10 ){
-                        alert("CONGRATULTIONS!, You Win");
-                        window.location.href = "/"; }
-                        else{
+                } else if (this.userScore === 10) {
+                    alert("CONGRATULTIONS!, You Win");
+                    window.location.href = "/";
                 }
             }
         }
