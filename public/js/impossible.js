@@ -60,15 +60,16 @@ window.onload = function() {
                     this.winning = "Computer is winning the game with " + this.computerScore + " points";
                 } else if (this.computerScore < this.userScore) {
                     this.winning = "user is winning the game with " + this.userScore + " points";
-                } else {
-                    this.winning = "It's a draw";
-                }
+                } 
+                else {
+                    this.winning = "It's a draw";}
+                
                 if (this.computerScore === 10) {
                     alert("COMPUTER WINS,YOU LOSE!");
-                    //window.location.href = "/";
+                    window.location.href = "/";
                 } else if (this.userScore === 10) {
                     alert("CONGRATULTIONS!, You Win");
-                    //window.location.href = "/";
+                    window.location.href = "/";
                 }
             }
         }
