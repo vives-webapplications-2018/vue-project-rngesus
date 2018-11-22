@@ -8,15 +8,17 @@ window.onload = function() {
                 userScore: 0,
                 computerScore: 0,
                 result: "",
-                winning: ""
+                winning: "",
+                chance: 1
             };
         },
         methods: {
-            choose: function(pick) {
+            choose: function (pick) {
                 this.userPick = pick;
                 const picks = ['rock', 'paper', 'scissors'];
                 this.aiPick = picks[Math.floor(Math.random() * picks.length)];
                 this.setScore();
+                this.chance++
             },
             setScore: function() {
                 if (this.userPick === 'rock') {
@@ -30,16 +32,16 @@ window.onload = function() {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'paper') {
-                    if (this.aiPick === 'rock') {
-                        this.result = "User wins";
-                        this.userScore++;
-                    } else if (this.aidPick === 'scissors') {
+                    if (this.aiPick === 'scissors') {
                         this.result = "Computer wins";
                         this.computerScore++;
+                    } else if (this.aiPick === 'rock') {
+                        this.result = "User wins";
+                        this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
-                } else {
+                } else if (this.userPick === 'scissors') {
                     if (this.aiPick === 'rock') {
                         this.result = "Computer wins";
                         this.computerScore++;
@@ -50,20 +52,30 @@ window.onload = function() {
                         this.result = "Draw";
                     }
                 }
-                if (this.userScore % 4 === 0){
+                if (this.chance % 5 === 0){
+                    console.log('Pc wins this time');
+                    console.log(this.chance);
+                    console.log(this.chance%5);
                     if (this.userPick === 'rock') {
                         this.aiPick = 'paper';
-                        this.result = "Computer wins";
                         this.computerScore++;
                     } else if (this.userPick === 'paper') {
                         this.aiPick = 'scissors';
-                        this.result = "Computer wins";
                         this.computerScore++;
                     } else if (this.userPick = 'scissors'){
                         this.aiPick = 'rock';
-                        this.result = "Computer wins";
                         this.computerScore++;
+                    }else{
+                        this.userScore++;
                     }
+                }
+                if (this.computerScore === 10) {
+                    alert("COMPUTER WINS,YOU LOSE!");
+                    window.location.href = "javascript:javascript:history.go(-1)";
+                   
+                } else if (this.userScore === 10) {
+                    alert("CONGRATULTIONS!, You Win");
+                    window.location.href = "javascript:javascript:history.go(-1)";
                 }
                 if (this.computerScore > this.userScore) {
                     this.winning = "Computer is winning the game with " + this.computerScore + " points";
@@ -71,13 +83,6 @@ window.onload = function() {
                     this.winning = "user is winning the game with " + this.userScore + " points";
                 } else {
                     this.winning = "It's a draw";
-                }
-                if (this.computerScore === 10) {
-                    alert("COMPUTER WINS,YOU LOSE!");
-                    window.location.href = "/";
-                } else if (this.userScore === 10) {
-                    alert("CONGRATULTIONS!, You Win");
-                    window.location.href = "/";
                 }
             }
         }
