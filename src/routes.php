@@ -37,11 +37,6 @@ $app->get('/multiplayer', function (Request $request, Response $response, array 
     return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
 });
 
-$app->get('/play', function (Request $request, Response $response, array $args) {
-    $this->logger->info("GET '/play' route");
-    return $this->renderer->render($response, '../public/html/play.html', $args);
-});
-
 $app->get('/singlePlayer', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/singlePlayer' route");
     return $this->renderer->render($response, '../public/html/singlePlayer.html', $args);
@@ -56,4 +51,25 @@ $app->get('/mode', function (Request $request, Response $response, array $args) 
     $this->logger->info("GET '/mode' route");
     return $this->renderer->render($response, '../public/html/mode.html', $args);
 });
+// $app->get('/impossible', function (Request $request, Response $response, array $args) {
+//     $this->logger->info("GET '/mode' route");
+//     return $this->renderer->render($response, '../public/html/impossible.html', $args);
+// });
+// $app->get('/hard', function (Request $request, Response $response, array $args) {
+//     $this->logger->info("GET '/mode' route");
+//     return $this->renderer->render($response, '../public/html/hard.html', $args);
+// });
+// $app->get('/med', function (Request $request, Response $response, array $args) {
+//     $this->logger->info("GET '/mode' route");
+//     return $this->renderer->render($response, '../public/html/med.html', $args);
+// });
+// $app->get('/easy', function (Request $request, Response $response, array $args) {
+//     $this->logger->info("GET '/play' route");
+//     return $this->renderer->render($response, '../public/html/easy.html', $args);
+// });
+$app->get('/difficulty', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/index' route");
+    return $this->renderer->render($response, '../public/html/difficulty.html', $args);
+});
+
 

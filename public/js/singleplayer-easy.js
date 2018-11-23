@@ -1,6 +1,6 @@
 window.onload = function() {
     var app = new Vue({
-        el: ".gameApp",
+        el: "#gameApp",
         data: function() {
             return {
                 userPick: null,
@@ -57,6 +57,13 @@ window.onload = function() {
                 } else {
                     this.winning = "It's a draw";
                 }
+                if (this.computerScore == 10) {
+                    alert("COMPUTER WINS,YOU LOSE!");
+                    window.location.href = "/";
+                } else if (this.userScore == 10) {
+                    alert("Congratulations, You Win!");
+                    window.location.href = "/mode";
+                } else {}
             }
         }
     });
