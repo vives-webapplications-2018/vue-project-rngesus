@@ -19,37 +19,24 @@ window.onload = function() {
                 this.setScore();
             },
             setScore: function() {
-                if (this.userPick === 'rock') {
-                    if (this.randPick === 'paper') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else if (this.randPick === 'scissors') {
-                        this.result = "User wins";
-                        this.userScore++;
-                    } else {
-                        this.result = "Draw";
-                    }
-                } else if (this.userPick === 'paper') {
-                    if (this.randPick === 'rock') {
-                        this.result = "User wins";
-                        this.userScore++;
-                    } else if (this.randPick === 'scissors') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else {
-                        this.result = "Draw";
-                    }
-                } else {
-                    if (this.randPick === 'rock') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else if (this.randPick === 'paper') {
-                        this.result = "User wins";
-                        this.userScore++;
-                    } else {
-                        this.result = "Draw";
-                    }
+                
+			switch(this.userPick, this.randPick){
+					case this.userPick === this.randPick:
+						this.result = "Draw";
+						break;
+			
+					case this.userPick === 'paper' && this.randPick === 'rock':
+					case this.userPick === 'scissors' && this.randPick === 'paper':
+					case this.userPIck === 'rock' && this.randPIck === 'scissors':
+						this.result = "User wins";
+						this.userScore++;
+						break;
+
+					default:
+						this.result = "Computer wins";
+						this.computerScore++;
                 }
+                
                 if (this.computerScore > this.userScore) {
                     this.winning = "Computer is winning the game with " + this.computerScore + " points";
                 } else if (this.computerScore < this.userScore) {

@@ -5,7 +5,8 @@ const settings = {
     subscriptionFallbackTopic: 'rpc-chat',
     publishFallbackTopic: 'rpc-chat',
     fallbackQoS: 0,
-    fallbackPayload: 'test'
+    fallbackPayload: 'test',
+    fallbackusername: ''
 };
 
 //Using the HiveMQ public Broker, with a random client Id
@@ -18,9 +19,10 @@ client.onConnectionLost = function (responseObject) {
 };
 
 //Gets called whenever you receive a message for your subscriptions
-client.onMessageArrived = function (message) {
+client.onMessageArrived = function (message , username) {
     //Do something with the push message you received
-    $('#messages').append('<span>Topic: ' + message.destinationName + '  | ' + message.payloadString + '</span><br/>');
+    //txt = document.write(' <?php encode(message.payloadString); ?> ');
+    $('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
 };
 
 //Connect Options
@@ -56,11 +58,20 @@ const subscribe = function() {
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
 const publish = function () {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
+ master
     const topic = 'rpc-chat';
     const qos = 0;
     const message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+
+    var topic = 'rpc-chat';
+    var qos = 0;
+    var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+    settings.fallbackusername = getValue('#username', settings.fallbackusername);
+    //alert(username);
+ master
     message.destinationName = topic;
     message.qos = qos;
-    client.send(message);
+    
+    client.send(message , settings);
     //alert('Published to ' + topic + ' with QoS ' + qos);
 };
