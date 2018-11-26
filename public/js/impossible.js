@@ -1,6 +1,10 @@
+ master
+window.onload = function() {
+
 /*jshint esversion: 6 */
 
 window.onload = () => {
+ master
     const app = new Vue({
         el: "#gameAppimp",
         data() {

@@ -1,5 +1,5 @@
 // Settings
-var settings = {
+const settings = {
     brokerUrl: 'mqtt.labict.be',
     port: 1884,
     subscriptionFallbackTopic: 'rpc-chat',
@@ -10,7 +10,7 @@ var settings = {
 };
 
 //Using the HiveMQ public Broker, with a random client Id
-var client = new Messaging.Client(settings.brokerUrl, settings.port, "myclientid_" + parseInt(Math.random() * 100, 10));
+const client = new Messaging.Client(settings.brokerUrl, settings.port, "myclientid_" + parseInt(Math.random() * 100, 10));
 
 //Gets  called if the websocket/mqtt connection gets disconnected for any reason
 client.onConnectionLost = function (responseObject) {
@@ -26,7 +26,7 @@ client.onMessageArrived = function (message , username) {
 };
 
 //Connect Options
-var options = {
+const options = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
@@ -41,28 +41,34 @@ var options = {
 
 // Helper function which retrieves the content of a input with the given id,
 // and provides a fallback if the input is empty
-var getValue = function (id, fallback) {
+const getValue = function (id, fallback) {
   var value = $(id).val();
   if (!value) value = fallback;
   return value;
 };
 
 // Subscribes to a given topic with a given QoS
-var subscribe = function() {
-  var topic = 'rpc-chat';
-  var qos = 0;
+const subscribe = function() {
+    const topic = 'rpc-chat';
+    const qos = 0;
   client.subscribe(topic);
   //alert('Subscribed to ' + topic + ' with QoS ' + qos);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
-var publish = function () {
+const publish = function () {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
+ master
+    const topic = 'rpc-chat';
+    const qos = 0;
+    const message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+
     var topic = 'rpc-chat';
     var qos = 0;
     var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
     settings.fallbackusername = getValue('#username', settings.fallbackusername);
     //alert(username);
+ master
     message.destinationName = topic;
     message.qos = qos;
     
