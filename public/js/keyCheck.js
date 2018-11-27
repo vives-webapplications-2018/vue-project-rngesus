@@ -1,20 +1,12 @@
-document.onkeydown = checkKey;
+document.addEventListener("keydown", keyDownTextField, false);
 
-function checkKey(e) {
-
-    e = e || window.event;
-
-    if (e.keyCode == '38') {
-        // up arrow
+function keyDownTextField(e) {
+    var keyCode = e.keyCode;
+    if (keyCode == 82) {
+        choose('rock');
+    } else if (keyCode == 80) {
+        alert("You hit the P key.");
+    } else if (keyCode == 83) {
+        alert("You hit the S key.");
     }
-    else if (e.keyCode == '40') {
-        // down arrow
-    }
-    else if (e.keyCode == '37') {
-       // left arrow
-    }
-    else if (e.keyCode == '39') {
-       // right arrow
-    }
-
 }
