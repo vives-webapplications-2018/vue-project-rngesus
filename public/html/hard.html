@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../img/icon.png">
 
-    <script src="js/singleplayer-easy.js" type="application/javascript"></script>
+    <script src="js/hard.js" type="application/javascript"></script>
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -38,7 +38,7 @@
             </div>
     </nav>
 
-    <div id="gameApp">
+    <div id="gameAppHard">
         <div class="row">
             <div class="col s1"></div>
             <div class="col s5">
@@ -71,7 +71,7 @@
                     <tbody>
                         <tr>
                             <td><em>{{userPick}}</em></td>
-                            <td><em>{{randPick}}</em></td>
+                            <td><em>{{aiPick}}</em></td>
                         </tr>
 
                         <thead>
@@ -88,9 +88,30 @@
                             </tr>
                         </tbody>
                 </table>
+                </div>
+                <div class="col s6">
+                        <div>
+                              </div>
+                              <!-- <div>
+                                <h2>Publish</h2>
+                                <input type="text" id="pubTopic" placeholder="Topic">
+                                <select id="pubQos">
+                                  <option value="QoS" disabled>QoS</option>
+                                  <option value="0">0</option>
+                                  <option value="1" selected>1</option>
+                                  <option value="2">2</option>
+                                </select>
+                                <button onclick="publish()">Publish</button><br>
+                                <textarea rows="4" cols="37" id="payload" placeholder="Payload"></textarea>
+                              </div>
+                              <div id="messages">
+                                <h2>Incoming Messages</h2>
+                              </div> -->
+                </div>
             </div>
         </div>
     </div>
+ 
 </body>
 
 </html>

@@ -74,3 +74,6 @@ h1 {
     border-color: #fafafa;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+.hidden{
+    display: none
+}
