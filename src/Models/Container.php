@@ -25,4 +25,8 @@ class Container
         echo '</tbody>
         </table>';  
     }
+
+    public function encode($string){
+        echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+    }
 }
