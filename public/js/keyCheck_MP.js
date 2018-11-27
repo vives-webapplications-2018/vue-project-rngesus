@@ -4,6 +4,7 @@ function keyDownTextField(e) {
     var keyCode = e.keyCode;
     if (keyCode == 82) {
         app.publish('rock_grhgihrwhbuwr');
+        alert("Rock works")
     } else if (keyCode == 80) {
         app.publish('paper_grhgihrwhbuwr');
     } else if (keyCode == 83) {
