@@ -1,5 +1,5 @@
 window.onload = function() {
-    const app = new Vue({
+    var app = new Vue({
         el: "#gameAppMed",
         data: function() {
             return {
