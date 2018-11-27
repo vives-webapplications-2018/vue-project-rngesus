@@ -2,11 +2,10 @@
 var settings = {
     brokerUrl: 'mqtt.labict.be',
     port: 1884,
-    subscriptionFallbackTopic: 'rpc-chat',
-    publishFallbackTopic: 'rpc-chat',
+    subscriptionFallbackTopic: 'rpc-choice',
+    publishFallbackTopic: 'rpc-choice',
     fallbackQoS: 0,
     fallbackPayload: 'test',
-    fallbackusername: ''
 };
 
 //Using the HiveMQ public Broker, with a random client Id
@@ -21,15 +20,15 @@ client.onConnectionLost = function (responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function (message , username) {
     //Do something with the push message you received
-    $('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
+    //$('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
 };
 
 //Connect Options
-var options = {
+var options_2 = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
-        //alert("Connected");
+    alert("Connected_2");
         subscribe();
     },
     //Gets Called if the connection could not be established
@@ -48,21 +47,29 @@ var getValue = function (id, fallback) {
 
 // Subscribes to a given topic with a given QoS
 var subscribe = function() {
-  var topic = 'rpc-chat';
+  var topic = 'rpc-choice';
   var qos = 0;
   client.subscribe(topic);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
-var publish = function () {
+var publish = function ( choice) {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = 'rpc-chat';
-    var qos = 0;
-    var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
-    settings.fallbackusername = getValue('#username', settings.fallbackusername);
-    message.destinationName = topic;
-    message.qos = qos;
-    
-    client.send(message , settings);
+    // var topic = 'rpc-chat';
+    // var qos = 0;
+    // var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+    // message.destinationName = topic;
+    // message.qos = qos;
+
+    //client.send(choice);
 };
 
+function rock(){
+    var topic = 'rpc-chat';
+    var qos = 0;
+    var message = new Messaging.Message('rock');
+    message.destinationName = topic;
+    message.qos = qos;
+
+    client.send(message);
+}

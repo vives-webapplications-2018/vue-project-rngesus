@@ -2,8 +2,8 @@
 var settings = {
     brokerUrl: 'mqtt.labict.be',
     port: 1884,
-    subscriptionFallbackTopic: 'rpc-choice',
-    publishFallbackTopic: 'rpc-choice',
+    subscriptionFallbackTopic: 'rpc-chat',
+    publishFallbackTopic: 'rpc-chat',
     fallbackQoS: 0,
     fallbackPayload: 'test',
     fallbackusername: ''
@@ -29,7 +29,7 @@ var options = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
-        //alert("Connected");
+        alert("Connected");
         subscribe();
     },
     //Gets Called if the connection could not be established
