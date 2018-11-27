@@ -91,6 +91,8 @@ function hard() {
                     this.winning = "It's a draw";
                 }
             }
+        }, mounted: function () {
+            
         }
     })
 };
