@@ -21,7 +21,6 @@ client.onConnectionLost = function (responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function (message , username) {
     //Do something with the push message you received
-    //txt = document.write(' <?php encode(message.payloadString); ?> ');
     $('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
 };
 
@@ -52,7 +51,6 @@ var subscribe = function() {
   var topic = 'rpc-chat';
   var qos = 0;
   client.subscribe(topic);
-  //alert('Subscribed to ' + topic + ' with QoS ' + qos);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
@@ -62,10 +60,9 @@ var publish = function () {
     var qos = 0;
     var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
     settings.fallbackusername = getValue('#username', settings.fallbackusername);
-    //alert(username);
     message.destinationName = topic;
     message.qos = qos;
     
     client.send(message , settings);
-    //alert('Published to ' + topic + ' with QoS ' + qos);
 };
+
