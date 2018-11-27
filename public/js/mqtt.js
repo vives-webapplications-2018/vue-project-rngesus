@@ -68,7 +68,7 @@ var publish = function (rpc) {
     } else {
         test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-        var message = new Messaging.Message(settings.fallbackusername + ": " +  settings.fallbackusername);
+        var message = new Messaging.Message(settings.fallbackusername + ": " +  test);
         
     }
     message.destinationName = topic;
