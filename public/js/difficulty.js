@@ -5,7 +5,7 @@ function hard() {
     document.querySelector("#med").className = 'hidden';
     document.querySelector("#hard").className = '';
     document.querySelector("#impossible").className = 'hidden';
-    const app = new Vue({
+    var app = new Vue({
         el: "#gameAppHard",
         data: function() {
             return {
@@ -101,7 +101,7 @@ function easy(){
     document.querySelector("#med").className = 'hidden';
     document.querySelector("#hard").className = 'hidden';
     document.querySelector("#impossible").className = 'hidden';
-    const app = new Vue({
+    var app = new Vue({
         el: "#gameAppEasy",
         data: function() {
             return {
@@ -179,7 +179,7 @@ function med(){
     document.querySelector("#med").className = '';
     document.querySelector("#hard").className = 'hidden';
     document.querySelector("#impossible").className = 'hidden';
-    const app = new Vue({
+        var app = new Vue({
             el: "#gameAppMed",
             data: function() {
                 return {
@@ -274,7 +274,7 @@ function impossible(){
     document.querySelector("#med").className = 'hidden';
     document.querySelector("#hard").className = 'hidden';
     document.querySelector("#impossible").className = '';
-    const app = new Vue({
+        var app = new Vue({
             el: "#gameAppimp",
             data: function() {
                 return {
