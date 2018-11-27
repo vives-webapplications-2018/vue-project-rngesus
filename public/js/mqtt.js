@@ -6,7 +6,8 @@ var settings = {
     publishFallbackTopic: 'rpc-chat',
     fallbackQoS: 0,
     fallbackPayload: 'test',
-    fallbackusername: ''
+    fallbackusername: '',
+    test: ''
 };
 
 //Using the HiveMQ public Broker, with a random client Id
@@ -24,7 +25,7 @@ client.onMessageArrived = function (message , username) {
     if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
         choose(message.payloadString);
     } else
-    $('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
+    $('#messages').append('<span>' + message.payloadString + '</span><br/>');
 };
 
 //Connect Options
@@ -65,9 +66,10 @@ var publish = function (rpc) {
         var message = new Messaging.Message(rpc);
         settings.fallbackusername = '';
     } else {
-        var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+        test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-
+        var message = new Messaging.Message(settings.fallbackusername + ": " +  test);
+        
     }
     message.destinationName = topic;
     message.qos = qos;
