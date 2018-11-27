@@ -2,8 +2,8 @@
 var settings = {
     brokerUrl: 'mqtt.labict.be',
     port: 1884,
-    subscriptionFallbackTopic: 'rpc-chat',
-    publishFallbackTopic: 'rpc-chat',
+    subscriptionFallbackTopic: 'rps-chat',
+    publishFallbackTopic: 'rps-chat',
     fallbackQoS: 0,
     fallbackPayload: 'test',
     fallbackusername: '',
@@ -52,18 +52,18 @@ var getValue = function (id, fallback) {
 
 // Subscribes to a given topic with a given QoS
 var subscribe = function() {
-  var topic = 'rpc-chat';
+  var topic = 'rps-chat';
   var qos = 0;
   client.subscribe(topic);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
-var publish = function (rpc) {
+var publish = function (rps) {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = 'rpc-chat';
+    var topic = 'rps-chat';
     var qos = 0;
-    if(rpc == "rock_grhgihrwhbuwr" || rpc == "paper_grhgihrwhbuwr" || rpc == "scissors_grhgihrwhbuwr" ){
-        var message = new Messaging.Message(rpc);
+    if(rps == "rock_grhgihrwhbuwr" || rps == "paper_grhgihrwhbuwr" || rps == "scissors_grhgihrwhbuwr" ){
+        var message = new Messaging.Message(rps);
         settings.fallbackusername = '';
     } else {
         test = getValue('#payload', settings.fallbackPayload);
