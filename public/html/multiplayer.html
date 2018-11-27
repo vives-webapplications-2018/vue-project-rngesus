@@ -18,6 +18,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script src="http://www.hivemq.com/demos/websocket-client/js/mqttws31.js" type="text/javascript"></script>
     <script src="../js/mqtt.js"></script>
+    <script src="../js/difficulty.js"></script>
+
     <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -39,7 +41,7 @@
                 </ul>
             </div>
     </nav>
-    <div id="gameApp">
+    <div class="gameAppEasy">
         <div class="row">
             <div class="col s1"></div>
             <div class="col s5">
@@ -47,10 +49,10 @@
                     <div class="row">
                         <div>
                             <div class="row">
-                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="rock()"></button></div>
+                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
                                 <div class="col s2"></div>
-                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="MPoption('paper')"></button></div>
-                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="MPoption('scissors')"></button></button>
+                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
+                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
                                 </div>
                                 <div class="col s4">
                                     <span>{{result}} <br> {{winning}}</span>

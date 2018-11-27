@@ -21,6 +21,9 @@ client.onConnectionLost = function (responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function (message , username) {
     //Do something with the push message you received
+    if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
+        choose(message.payloadString);
+    } else
     $('#messages').append('<span>' + settings.fallbackusername + ": " + message.payloadString + '</span><br/>');
 };
 
@@ -29,7 +32,7 @@ var options = {
     timeout: 3,
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
-        alert("Connected");
+        //alert("Connected");
         subscribe();
     },
     //Gets Called if the connection could not be established
@@ -54,12 +57,18 @@ var subscribe = function() {
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
-var publish = function () {
+var publish = function (rpc) {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
     var topic = 'rpc-chat';
     var qos = 0;
-    var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
-    settings.fallbackusername = getValue('#username', settings.fallbackusername);
+    if(rpc == "rock_grhgihrwhbuwr" || rpc == "paper_grhgihrwhbuwr" || rpc == "scissors_grhgihrwhbuwr" ){
+        var message = new Messaging.Message(rpc);
+        settings.fallbackusername = '';
+    } else {
+        var message = new Messaging.Message(getValue('#payload', settings.fallbackPayload));
+        settings.fallbackusername = getValue('#username', settings.fallbackusername);
+
+    }
     message.destinationName = topic;
     message.qos = qos;
     
