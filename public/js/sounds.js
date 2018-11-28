@@ -1,11 +1,11 @@
-var audio = document.getElementById('my_audio');
+var backgroundmusic = document.getElementById('my_audio');
 
 window.onload = function() {
-    audio.play();
+    backgroundmusic.play();
 }
 
 document.getElementById('mute').addEventListener('click', function(e) {
     e = e || window.event;
-    audio.muted = !audio.muted;
+    backgroundmusic.muted = !backgroundmusic.muted;
     e.preventDefault();
 }, false);
