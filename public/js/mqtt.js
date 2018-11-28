@@ -1,3 +1,4 @@
+
 // Settings
 var settings = {
     brokerUrl: 'mqtt.labict.be',
@@ -22,8 +23,8 @@ client.onConnectionLost = function(responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function(message, username) {
     //Do something with the push message you received
-    if (message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr") {
-        choose(message.payloadString);
+    if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
+        app.choose('scissors');
     } else
         $('#messages').append('<span>' + message.payloadString + '</span><br/>');
 };
