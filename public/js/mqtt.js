@@ -11,6 +11,8 @@ var settings = {
     test: ''
 };
 
+
+
 //Using the HiveMQ public Broker, with a random client Id
 var client = new Messaging.Client(settings.brokerUrl, settings.port, "myclientid_" + parseInt(Math.random() * 100, 10));
 
@@ -21,12 +23,13 @@ client.onConnectionLost = function(responseObject) {
 };
 
 //Gets called whenever you receive a message for your subscriptions
-client.onMessageArrived = function(message, username) {
+client.onMessageArrived = function(message) {
     //Do something with the push message you received
     if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
-        app.choose('scissors');
-    } else
-        $('#messages').append('<span>' + message.payloadString + '</span><br/>');
+    } else {
+                $('#messages').append('<span>' + message.payloadString + '</span><br/>');
+    }
+
 };
 
 //Connect Options
@@ -69,8 +72,7 @@ var publish = function(rps) {
     } else {
         test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-        var message = new Messaging.Message(settings.fallbackusername + ": " + test);
-
+        var message = new Messaging.Message(escape(settings.fallbackusername) + ": " + escape(test));
     }
     message.destinationName = topic;
     message.qos = qos;
