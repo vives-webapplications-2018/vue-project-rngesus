@@ -1,6 +1,11 @@
 var app;
 
+window.onload = function() {
+    multiplayer();
+}
+
 function multiplayer() {
+    console.log("hallo");
     app = new Vue({
         el: "#gameAppMulti",
         data: function() {
