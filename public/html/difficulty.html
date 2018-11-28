@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="icon" href="../../img/icon.png">
+
+    <script src="js/singleplayer-easy.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/keyCheck.js"></script>
+    <script src="../js/difficulty.js"></script>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left hide-on-med-and-down ">
+                    <li><a href="javascript:javascript:history.go(-1)">Back</a></li>
+                </ul>
+                <a href="/" class="brand-logo center">RPS</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down ">
+                    <li><a href="/">Home</a></li>
+                    <li class=""><a href="/instructions">Instructions</a></li>
+                    <li><a href="/credits">Credits</a></li>
+                    <li><a href="/scoreboard">Scoreboard</a></li>
+                </ul>
+            </div>
+    </nav>
+    <div id="menu" class="">
+        <h1 class="center ">Select difficulty</h1>
+
+        <ul class="background center">
+            <li><a id="E" class="waves-effect waves-light btn buttons " onclick="easy();">Easy</a></li>
+            <li><a id="M" class="waves-effect waves-light btn buttons" onclick="med();">Medium</a></li>
+            <li><a id="H" class="waves-effect waves-light btn buttons" onclick="hard();">Hard</a></li>
+            <li><a id="I" class="waves-effect waves-light btn buttons" onclick="impossible();">Impossible</a></li>
+        </ul>
+    </div>
+
+    <div id="easy" class="hidden">
+        <div id="gameAppEasy">
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="col s5">
+                    <div>
+                        <div class="row">
+                            <div>
+                                <div class="row">
+                                    <div class="col s12"><button accesskey="r" id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
+                                    <div class="col s2"></div>
+                                    <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')"></button></div>
+                                    <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')"></button></button>
+                                    </div>
+                                    <div class="col s4">
+                                        <span>{{result}} <br> {{winning}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <table class="centered">
+                        <thead>
+                            <tr>
+                                <th>User pick</th>
+                                <th>Bot pick</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><em>{{userPick}}</em></td>
+                                <td><em>{{aiPick}}</em></td>
+                            </tr>
+
+                            <thead>
+                                <tr>
+                                    <th>User score</th>
+                                    <th>Bot score</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><span>{{ userScore }}</span></td>
+                                    <td><span>{{ computerScore }}</span></td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="med" class="hidden">
+        <div id="gameAppMed">
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="col s5">
+                    <div>
+                        <div class="row">
+                            <div>
+                                <div class="row">
+                                    <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
+                                    <div class="col s2"></div>
+                                    <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')"></button></div>
+                                    <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')"></button></button>
+                                    </div>
+                                    <div class="col s4">
+                                        <span>{{result}} <br> {{winning}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <table class="centered">
+                        <thead>
+                            <tr>
+                                <th>User pick</th>
+                                <th>Bot pick</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><em>{{userPick}}</em></td>
+                                <td><em>{{aiPick}}</em></td>
+                            </tr>
+
+                            <thead>
+                                <tr>
+                                    <th>User score</th>
+                                    <th>Bot score</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><span>{{ userScore }}</span></td>
+                                    <td><span>{{ computerScore }}</span></td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+                <div class="col s6">
+                    <div>
+                    </div>
+                    <div>
+                        <h2>Publish</h2>
+                        <input type="text" id="pubTopic" placeholder="Topic">
+                        <select id="pubQos">
+                              <option value="QoS" disabled>QoS</option>
+                              <option value="0">0</option>
+                              <option value="1" selected>1</option>
+                              <option value="2">2</option>
+                            </select>
+                        <button onclick="publish()">Publish</button><br>
+                        <textarea rows="4" cols="37" id="payload" placeholder="Payload"></textarea>
+                    </div>
+                    <div id="messages">
+                        <h2>Incoming Messages</h2>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="hard" class="hidden">
+        <div id="gameAppHard">
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="col s5">
+                    <div>
+                        <div class="row">
+                            <div>
+                                <div class="row">
+                                    <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
+                                    <div class="col s2"></div>
+                                    <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')"></button></div>
+                                    <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')"></button></button>
+                                    </div>
+                                    <div class="col s4">
+                                        <span>{{result}} <br> {{winning}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <table class="centered">
+                        <thead>
+                            <tr>
+                                <th>User pick</th>
+                                <th>Bot pick</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><em>{{userPick}}</em></td>
+                                <td><em>{{aiPick}}</em></td>
+                            </tr>
+
+                            <thead>
+                                <tr>
+                                    <th>User score</th>
+                                    <th>Bot score</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><span>{{ userScore }}</span></td>
+                                    <td><span>{{ computerScore }}</span></td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+                <div class="col s6">
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="impossible" class="hidden">
+        <div id="gameAppimp">
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="col s5">
+                    <div>
+                        <div class="row">
+                            <div>
+                                <div class="row">
+                                    <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')"></button></div>
+                                    <div class="col s2"></div>
+                                    <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')"></button></div>
+                                    <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')"></button></button>
+                                    </div>
+                                    <div class="col s4">
+                                        <span>{{result}} <br> {{winning}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <table class="centered">
+                        <thead>
+                            <tr>
+                                <th>User pick</th>
+                                <th>Bot pick</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><em>{{userPick}}</em></td>
+                                <td><em>{{aiPick}}</em></td>
+                            </tr>
+
+                            <thead>
+                                <tr>
+                                    <th>User score</th>
+                                    <th>Bot score</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><span>{{ userScore }}</span></td>
+                                    <td><span>{{ computerScore }}</span></td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -14,14 +14,17 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../Img/icon.png">
-
-    <script src="../js/javascript.js"></script>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="https://authedmine.com/lib/authedmine.min.js"></script>
-    <script src="../js/coinhive.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://www.hivemq.com/demos/websocket-client/js/mqttws31.js" type="text/javascript"></script>
+    <script src="../js/mqtt.js"></script>
+    <script src="../js/multiplayer.js"></script>
+    <script src="../js/keyCheck_MP.js"></script>
+
 </head>
 
-<body>
+<body onload="client.connect(options)">
 
     <nav>
         <div class="nav-wrapper grey darken-4">
@@ -29,7 +32,7 @@
                 <ul id="nav-mobile" class="left hide-on-med-and-down ">
                     <li><a href="javascript:javascript:history.go(-1)">Back</a></li>
                 </ul>
-                <a href="/" class="brand-logo center">Logo</a>
+                <a href="/" class="brand-logo center">RPS</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="/">Home</a></li>
                     <li class=""><a href="/instructions">Instructions</a></li>
@@ -39,5 +42,70 @@
             </div>
     </nav>
 
+    <div id="gameAppMulti">
+        <div class="row">
+            <div class="col s1"></div>
+            <div class="col s5">
+                <div>
+                    <div class="row">
+                        <div>
+                            <div class="row">
+                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
+                                <div class="col s2"></div>
+                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
+                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
+                                </div>
+                                <div class="col s4">
+                                    <span>{{result}} <br> {{winning}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6">
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>Your pick</th>
+                            <th>Opponent pick</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><em>{{userPick}}</em></td>
+                            <td><em>{{randPick}}</em></td>
+                        </tr>
+
+                        <thead>
+                            <tr>
+                                <th>User score</th>
+                                <th>Opponent score</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><span>{{ userScore }}</span></td>
+                                <td><span>{{ computerScore }}</span></td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            <div class="col s6">
+
+                <div>
+                    <button onclick="publish()">Publish</button><br>
+                    <textarea type="text" rows="1" cols="37" id="username" placeholder="username"></textarea>
+                    <textarea type="text" rows="4" cols="37" id="payload" placeholder="message"></textarea>
+                </div>
+                <div id="messages" class="chat">
+                    <h2>Incoming Messages</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
