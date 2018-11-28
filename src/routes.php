@@ -63,10 +63,10 @@ $app->get('/mode', function (Request $request, Response $response, array $args) 
 //     $this->logger->info("GET '/mode' route");
 //     return $this->renderer->render($response, '../public/html/med.html', $args);
 // });
-// $app->get('/easy', function (Request $request, Response $response, array $args) {
-//     $this->logger->info("GET '/play' route");
-//     return $this->renderer->render($response, '../public/html/easy.html', $args);
-// });
+ $app->get('/easy', function (Request $request, Response $response, array $args) {
+     $this->logger->info("GET '/play' route");
+     return $this->renderer->render($response, '../public/html/easy.html', $args);
+ });
 $app->get('/difficulty', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/index' route");
     return $this->renderer->render($response, '../public/html/difficulty.html', $args);
