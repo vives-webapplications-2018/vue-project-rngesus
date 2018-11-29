@@ -22,11 +22,7 @@
     <script src="../js/mqtt.js"></script>
     <script src="../js/difficulty.js"></script>
     <script src="../js/keyCheck_MP.js"></script>
-    <script>
-        window.onload = function() {
-            multiplayer();
-        }
-    </script>
+
 
 
 </head>
@@ -113,9 +109,15 @@
         </div>
     </div>
 
-    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
+    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
     <script src="../js/sounds.js"></script>
+
+    <script>
+        window.onload = function() {
+            multiplayer();
+        }
+    </script>
 
 </body>
 
