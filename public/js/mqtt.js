@@ -1,4 +1,3 @@
-
 // Settings
 var settings = {
     brokerUrl: 'test.mosquitto.org',
@@ -25,10 +24,10 @@ client.onConnectionLost = function(responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function(message) {
     //Do something with the push message you received
-    if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
-    
+    if (message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr") {
+
     } else {
-                $('#messages').append('<span>' + message.payloadString + '</span><br/>');
+        $('#messages').append('<span>' + message.payloadString + '</span><br/>');
     }
 
 };
@@ -73,7 +72,7 @@ var publish = function(rps) {
     } else {
         test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-        var message = new Messaging.Message(escape(settings.fallbackusername) + ": " + escape(test));
+        var message = new Messaging.Message((settings.fallbackusername) + ": " + (test));
     }
     message.destinationName = topic;
     message.qos = qos;

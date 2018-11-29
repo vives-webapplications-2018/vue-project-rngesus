@@ -9,5 +9,8 @@ function keyDownTextField(e) {
         publish('paper_grhgihrwhbuwr');
     } else if (keyCode == 83) {
         publish('scissors_grhgihrwhbuwr');
+    } else if (keyCode == 13) {
+        publish();
+        document.getElementById('payload').value = '';
     }
 }
