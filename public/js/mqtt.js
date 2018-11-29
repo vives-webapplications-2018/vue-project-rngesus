@@ -35,7 +35,7 @@ client.onMessageArrived = function (message) {
     console.log(settings.opponentID)
     if ( message.payloadString.includes("_grhgihrwhbuwr") && message.payloadString.includes(settings.opponentID)) {
 
-        str = message.payloadString.slice(0, message.payloadString.length - 20);
+        str = message.payloadString.slice(0, message.payloadString.length - 31);
         console.log("opponent picked:" + str)
         app.choose(str);
     } else if (message.payloadString.includes('opponentID') && !(message.payloadString.includes(settings.userID))) {
