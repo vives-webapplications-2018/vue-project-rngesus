@@ -41,6 +41,7 @@ client.onMessageArrived = function (message) {
 
     } else if (message.payloadString.includes('opponentID') && !(message.payloadString.includes(settings.userID))) {
         if (settings.counter > settings.i) {
+            settings.opponentID = '';
             settings.opponentID = message.payloadString;
             //console.log('userID_' + settings.userID);
             console.log(settings.opponentID);
