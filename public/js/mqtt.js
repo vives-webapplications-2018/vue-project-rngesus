@@ -90,7 +90,7 @@ var publish = function (rps) {
     var qos = 0;
 
     if (rps == "rock_grhgihrwhbuwr" || rps == "paper_grhgihrwhbuwr" || rps == "scissors_grhgihrwhbuwr") {
-        var message = new Messaging.Message(rps + '_' + settings.userID);
+        var message = new Messaging.Message(rps + '_opponentID_69801' + settings.userID);
         settings.fallbackusername = '';
     } else {
         test = getValue('#payload', settings.fallbackPayload);
