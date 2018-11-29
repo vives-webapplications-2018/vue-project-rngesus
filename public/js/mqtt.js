@@ -8,10 +8,17 @@ var settings = {
     fallbackQoS: 0,
     fallbackPayload: 'test',
     fallbackusername: '',
-    test: ''
+    test: '',
+    userID: '',
+    opponentID: '',
+    counter: 2,
+    i: 0,
+    rps: ''
 };
 
-
+function randomValue(){
+    return Math.random().toString(13).replace('0.', '');
+}
 
 //Using the HiveMQ public Broker, with a random client Id
 var client = new Messaging.Client(settings.brokerUrl, settings.port, "myclientid_" + parseInt(Math.random() * 100, 10));
@@ -27,10 +34,17 @@ client.onMessageArrived = function(message) {
     //Do something with the push message you received
     if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
     
+    } else if (message.payloadString.includes('opponentID') && !(message.payloadString.includes(settings.userID))) {
+        if(settings.counter > settings.i){
+            settings.opponentID = message.payloadString;
+            console.log( 'userID_' + settings.userID);
+            console.log(settings.opponentID);
+            publish('opponentID_' + settings.userID);
+            settings.i++
+        }
     } else {
-                $('#messages').append('<span>' + message.payloadString + '</span><br/>');
+        $('#messages').append('<span>' + message.payloadString + '</span><br/>');
     }
-
 };
 
 //Connect Options
@@ -59,7 +73,13 @@ var getValue = function(id, fallback) {
 var subscribe = function() {
     var topic = 'rps-chat';
     var qos = 0;
+
     client.subscribe(topic);
+    settings.userID = randomValue();
+    var message = new Messaging.Message('opponentID_' + settings.userID);
+    message.destinationName = topic;
+    message.qos = qos;
+    client.send(message);
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
@@ -67,6 +87,7 @@ var publish = function(rps) {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
     var topic = 'rps-chat';
     var qos = 0;
+
     if (rps == "rock_grhgihrwhbuwr" || rps == "paper_grhgihrwhbuwr" || rps == "scissors_grhgihrwhbuwr") {
         var message = new Messaging.Message(rps);
         settings.fallbackusername = '';
