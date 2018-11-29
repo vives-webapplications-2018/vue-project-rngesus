@@ -97,11 +97,11 @@ function multiplayer() {
                     }
                 }
                 if (this.opponentScore === 10) {
-                    alert("Opponent wins,you lose!");
+                    //alert("Opponent wins,you lose!");
                     location.reload();
 
                 } else if (this.userScore === 10) {
-                    alert("CONGRATULTIONS!, You Win");
+                    //alert("CONGRATULTIONS!, You Win");
                     location.reload();
                 }
                 if (this.opponentScore > this.userScore) {
