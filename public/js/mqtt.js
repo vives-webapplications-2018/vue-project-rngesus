@@ -1,8 +1,8 @@
 
 // Settings
 var settings = {
-    brokerUrl: 'mqtt.labict.be',
-    port: 1884,
+    brokerUrl: 'test.mosquitto.org',
+    port: 8080,
     subscriptionFallbackTopic: 'rps-chat',
     publishFallbackTopic: 'rps-chat',
     fallbackQoS: 0,
@@ -26,6 +26,7 @@ client.onConnectionLost = function(responseObject) {
 client.onMessageArrived = function(message) {
     //Do something with the push message you received
     if(message.payloadString == "rock_grhgihrwhbuwr" || message.payloadString == "paper_grhgihrwhbuwr" || message.payloadString == "scissors_grhgihrwhbuwr" ){
+    
     } else {
                 $('#messages').append('<span>' + message.payloadString + '</span><br/>');
     }
@@ -77,5 +78,5 @@ var publish = function(rps) {
     message.destinationName = topic;
     message.qos = qos;
 
-    client.send(message, settings);
+    client.send(message);
 };

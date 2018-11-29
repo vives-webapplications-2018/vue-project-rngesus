@@ -22,12 +22,6 @@
     <script src="../js/mqtt.js"></script>
     <script src="../js/difficulty.js"></script>
     <script src="../js/keyCheck_MP.js"></script>
-    <script>
-        window.onload = function() {
-            client.connect(options);
-            multiplayer();
-        }
-    </script>
 
 
 </head>
@@ -43,7 +37,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="/">Home</a></li>
                     <li class=""><a href="/instructions">Instructions</a></li>
-                    <li><a href="/credits">Credits</a></li>
+                    <li><a href="/credits">Credits</a></li>-
                     <li><a href="/scoreboard">Scoreboard</a></li>
                 </ul>
             </div>
@@ -114,9 +108,16 @@
         </div>
     </div>
 
-    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
+    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
     <script src="../js/sounds.js"></script>
+
+    <script>
+        window.onload = function() {
+            multiplayer();
+            client.connect(options);    
+        }
+    </script>
 
 </body>
 
