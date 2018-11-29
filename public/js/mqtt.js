@@ -38,10 +38,10 @@ client.onMessageArrived = function(message) {
             settings.opponentID = message.payloadString;
             console.log( 'userID_' + settings.userID);
             console.log(settings.opponentID);
-            publish('opponentID_' + settings.userID);
+            sendID();
             settings.i++
         }
-    } else {
+    } else if(!(message.payloadString.includes('ID_'))){
         $('#messages').append('<span>' + message.payloadString + '</span><br/>');
     }
 };
@@ -72,13 +72,8 @@ var getValue = function(id, fallback) {
 var subscribe = function() {
     var topic = 'rps-chat';
     var qos = 0;
-
     client.subscribe(topic);
-    settings.userID = randomValue();
-    var message = new Messaging.Message('opponentID_' + settings.userID);
-    message.destinationName = topic;
-    message.qos = qos;
-    client.send(message);
+    sendID();
 };
 
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
@@ -100,3 +95,13 @@ var publish = function(rps) {
 
     client.send(message);
 };
+
+var sendID = function(){
+    var topic = 'rps-chat';
+    var qos = 0;
+    settings.userID = randomValue();
+    var message = new Messaging.Message('opponentID_' + settings.userID);
+    message.destinationName = topic;
+    message.qos = qos;
+    client.send(message);
+}
