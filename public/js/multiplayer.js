@@ -24,26 +24,28 @@ function multiplayer() {
                 console.log("user picked" + user_pick);
                 this.userPick = user_pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                    if(user_pick == true){
-                        this.setScore();
-                    }
+                if (user_pick == true) {
+                    this.setScore();
+                }
             },
             chooseOpponent: function(opponent_pick) {
                 console.log("opponent picked" + opponent_pick);
                 const picks = ['rock', 'paper', 'scissors'];
                 this.opponentPick = opponent_pick;
-                this.setScore();
+                if (opponent_pick == true) {
+                    this.setScore();
+                }
             },
             setScore: function() {
                 if (this.userPick === 'rock') {
                     if (this.opponentPick === 'paper') {
                         this.result = "opponent wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'scissors') {
                         this.result = "User wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
@@ -52,12 +54,12 @@ function multiplayer() {
                 } else if (this.userPick === 'paper') {
                     if (this.opponentPick === 'scissors') {
                         this.result = "opponent wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'rock') {
                         this.result = "User wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
@@ -66,12 +68,12 @@ function multiplayer() {
                 } else if (this.userPick === 'scissors') {
                     if (this.opponentPick === 'rock') {
                         this.result = "opponent wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'paper') {
                         this.result = "User wins";
-                        app.userPick =  app.userPick + " ";
+                        app.userPick = app.userPick + " ";
                         app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
