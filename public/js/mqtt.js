@@ -37,7 +37,7 @@ client.onMessageArrived = function (message) {
 
         str = message.payloadString.slice(0, message.payloadString.length - 31);
         console.log("opponent picked:" + str)
-        app.choose(str);
+        app.chooseOpponent(str);
     } else if (message.payloadString.includes('opponentID') && !(message.payloadString.includes(settings.userID))) {
         if (settings.counter > settings.i) {
             settings.opponentID = '';

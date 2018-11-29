@@ -11,7 +11,7 @@ function multiplayer() {
         data: function() {
             return {
                 userPick: null,
-                aiPick: null,
+                opponentPick: null,
                 userScore: 0,
                 computerScore: 0,
                 result: "",
@@ -20,39 +20,44 @@ function multiplayer() {
             };
         },
         methods: {
-            choose: function(pick) {
-                this.userPick = pick;
+            chooseUser: function(user_pick) {
+                console.log("user picked");
+                this.userPick = user_pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                this.aiPick = picks[Math.floor(Math.random() * picks.length)];
                 this.setScore();
-                this.chance++
+            },
+            chooseOpponent: function(opponent_pick) {
+                console.log("opponent picked");
+                const picks = ['rock', 'paper', 'scissors'];
+                this.opponentPick = picks[opponent_pick];
+                this.setScore();
             },
             setScore: function() {
                 if (this.userPick === 'rock') {
-                    if (this.aiPick === 'paper') {
+                    if (this.opponentPick === 'paper') {
                         this.result = "Computer wins";
                         this.computerScore++;
-                    } else if (this.aiPick === 'scissors') {
+                    } else if (this.opponentPick === 'scissors') {
                         this.result = "User wins";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'paper') {
-                    if (this.aiPick === 'scissors') {
+                    if (this.opponentPick === 'scissors') {
                         this.result = "Computer wins";
                         this.computerScore++;
-                    } else if (this.aiPick === 'rock') {
+                    } else if (this.opponentPick === 'rock') {
                         this.result = "User wins";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'scissors') {
-                    if (this.aiPick === 'rock') {
+                    if (this.opponentPick === 'rock') {
                         this.result = "Computer wins";
                         this.computerScore++;
-                    } else if (this.aiPick === 'paper') {
+                    } else if (this.opponentPick === 'paper') {
                         this.result = "User wins";
                         this.userScore++;
                     } else {
@@ -64,13 +69,13 @@ function multiplayer() {
                     console.log(this.chance);
                     console.log(this.chance % 4);
                     if (this.userPick === 'rock') {
-                        this.aiPick = 'paper';
+                        this.opponentPick = 'paper';
                         this.computerScore++;
                     } else if (this.userPick === 'paper') {
-                        this.aiPick = 'scissors';
+                        this.opponentPick = 'scissors';
                         this.computerScore++;
                     } else if (this.userPick = 'scissors') {
-                        this.aiPick = 'rock';
+                        this.opponentPick = 'rock';
                         this.computerScore++;
                     } else {
                         this.userScore++;
