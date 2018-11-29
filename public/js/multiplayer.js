@@ -97,12 +97,12 @@ function multiplayer() {
                     }
                 }
                 if (this.opponentScore === 10) {
-                    //alert("Opponent wins,you lose!");
-                    location.reload();
+                    alert("Opponent wins,you lose!");
+                    //location.reload();
 
                 } else if (this.userScore === 10) {
-                    //alert("CONGRATULTIONS!, You Win");
-                    location.reload();
+                    alert("CONGRATULTIONS!, You Win");
+                    //location.reload();
                 }
                 if (this.opponentScore > this.userScore) {
                     this.winning = "Computer is winning the game with " + this.opponentScore + " points";
