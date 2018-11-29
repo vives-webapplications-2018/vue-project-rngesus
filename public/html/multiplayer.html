@@ -51,10 +51,13 @@
                     <div class="row">
                         <div>
                             <div class="row">
-                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
+                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1"
+                                        @click="choose('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
                                 <div class="col s2"></div>
-                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
-                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
+                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1"
+                                        @click="choose('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
+                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1"
+                                        @click="choose('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
                                 </div>
                             </div>
                         </div>
@@ -83,12 +86,12 @@
                             </tr>
                         </thead>
 
-                        <tbody>
-                            <tr>
-                                <td><span>{{ userScore }}</span></td>
-                                <td><span>{{ computerScore }}</span></td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td><span>{{ userScore }}</span></td>
+                            <td><span>{{ computerScore }}</span></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             <div class="col s6">
@@ -108,12 +111,12 @@
         </div>
     </div>
 
-    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
+    <!--<audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>-->
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
     <script src="../js/sounds.js"></script>
 
     <script>
-        window.onload = function() {
+        window.onload = function () {
             multiplayer();
             client.connect(options);
         }
