@@ -58,6 +58,7 @@ var options = {
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
         //alert("Connected");
+        settings.userID = '';
         settings.userID = randomValue();
         subscribe();
     },
