@@ -35,30 +35,42 @@ function multiplayer() {
             setScore: function() {
                 if (this.userPick === 'rock') {
                     if (this.opponentPick === 'paper') {
-                        this.result = "Computer wins";
+                        this.result = "opponent wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'scissors') {
                         this.result = "User wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'paper') {
                     if (this.opponentPick === 'scissors') {
-                        this.result = "Computer wins";
+                        this.result = "opponent wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'rock') {
                         this.result = "User wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'scissors') {
                     if (this.opponentPick === 'rock') {
-                        this.result = "Computer wins";
+                        this.result = "opponent wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.opponentScore++;
                     } else if (this.opponentPick === 'paper') {
                         this.result = "User wins";
+                        app.userPick = "";
+                        app.opponentPick = "";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
