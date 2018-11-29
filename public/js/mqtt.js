@@ -31,7 +31,9 @@ client.onConnectionLost = function (responseObject) {
 //Gets called whenever you receive a message for your subscriptions
 client.onMessageArrived = function (message) {
     //Do something with the push message you received
-    if ((message.payloadString.includes("rock_grhgihrwhbuwr") || message.payloadString.includes("paper_grhgihrwhbuwr") || message.payloadString.includes("scissors_grhgihrwhbuwr")) && message.payloadString.includes(settings.opponentID)) {
+    console.log(message.payloadString)
+    console.log(settings.opponentID)
+    if ( message.payloadString.includes("_grhgihrwhbuwr") && message.payloadString.includes(settings.opponentID)) {
 
         str = message.payloadString.slice(0, message.payloadString.length - 20);
         //choose(str);
@@ -56,8 +58,8 @@ var options = {
     //Gets Called if the connection has sucessfully been established
     onSuccess: function () {
         //alert("Connected");
-        subscribe();
         settings.userID = randomValue();
+        subscribe();
     },
     //Gets Called if the connection could not be established
     onFailure: function (message) {

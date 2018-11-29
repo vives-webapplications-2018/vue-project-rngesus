@@ -81,4 +81,3 @@ var setScore = function(){
         this.winning = "It's a draw";
     }
 }
-}
