@@ -1,4 +1,3 @@
-
 // Settings
 var settings = {
     brokerUrl: 'test.mosquitto.org',
@@ -94,7 +93,7 @@ var publish = function(rps) {
     } else {
         test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-        var message = new Messaging.Message(escape(settings.fallbackusername) + ": " + escape(test));
+        var message = new Messaging.Message((settings.fallbackusername) + ": " + (test));
     }
     message.destinationName = topic;
     message.qos = qos;

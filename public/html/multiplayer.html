@@ -94,7 +94,7 @@
             <div class="col s6">
 
                 <div>
-                    <button onclick="publish()">Publish</button><br>
+                    <button onclick="publish(); document.getElementById('payload').value = ''">Send</button><br>
                     <textarea class="inputField" type="text" rows="1" cols="40" id="username" placeholder="username"></textarea>
                     <textarea class="inputField" type="text" rows="4" cols="40" id="payload" placeholder="message"></textarea>
                     <div class="row">
