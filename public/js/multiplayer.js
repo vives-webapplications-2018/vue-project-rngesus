@@ -21,7 +21,7 @@ function multiplayer() {
         },
         methods: {
             chooseUser: function(user_pick) {
-                console.log("user picked");
+                console.log("user picked" + user_pick);
                 this.userPick = user_pick;
                 const picks = ['rock', 'paper', 'scissors'];
                     if(user_pick == true){
@@ -29,7 +29,7 @@ function multiplayer() {
                     }
             },
             chooseOpponent: function(opponent_pick) {
-                console.log("opponent picked");
+                console.log("opponent picked" + opponent_pick);
                 const picks = ['rock', 'paper', 'scissors'];
                 this.opponentPick = opponent_pick;
                 this.setScore();
