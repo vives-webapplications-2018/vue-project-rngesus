@@ -82,7 +82,7 @@ function multiplayer() {
                     }
                 }
                 if (this.opponentScore === 10) {
-                    alert("COMPUTER WINS,YOU LOSE!");
+                    alert("Opponent wins,you lose!");
                     location.reload();
 
                 } else if (this.userScore === 10) {
