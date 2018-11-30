@@ -11,49 +11,69 @@ function multiplayer() {
         data: function() {
             return {
                 userPick: null,
-                aiPick: null,
+                opponentPick: null,
                 userScore: 0,
-                computerScore: 0,
+                opponentScore: 0,
                 result: "",
                 winning: "",
                 chance: 1
             };
         },
         methods: {
-            choose: function(pick) {
-                this.userPick = pick;
+            chooseUser: function(user_pick) {
+                console.log("user picked" + user_pick);
+                this.userPick = user_pick;
                 const picks = ['rock', 'paper', 'scissors'];
-                this.aiPick = picks[Math.floor(Math.random() * picks.length)];
-                this.setScore();
-                this.chance++
+                if (user_pick == true) {
+                    this.setScore();
+                }
+            },
+            chooseOpponent: function(opponent_pick) {
+                console.log("opponent picked" + opponent_pick);
+                const picks = ['rock', 'paper', 'scissors'];
+                this.opponentPick = opponent_pick;
+                    this.setScore();
+                
             },
             setScore: function() {
                 if (this.userPick === 'rock') {
-                    if (this.aiPick === 'paper') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else if (this.aiPick === 'scissors') {
+                    if (this.opponentPick === 'paper') {
+                        this.result = "opponent wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
+                        this.opponentScore++;
+                    } else if (this.opponentPick === 'scissors') {
                         this.result = "User wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'paper') {
-                    if (this.aiPick === 'scissors') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else if (this.aiPick === 'rock') {
+                    if (this.opponentPick === 'scissors') {
+                        this.result = "opponent wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
+                        this.opponentScore++;
+                    } else if (this.opponentPick === 'rock') {
                         this.result = "User wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
                     }
                 } else if (this.userPick === 'scissors') {
-                    if (this.aiPick === 'rock') {
-                        this.result = "Computer wins";
-                        this.computerScore++;
-                    } else if (this.aiPick === 'paper') {
+                    if (this.opponentPick === 'rock') {
+                        this.result = "opponent wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
+                        this.opponentScore++;
+                    } else if (this.opponentPick === 'paper') {
                         this.result = "User wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
                     } else {
                         this.result = "Draw";
@@ -64,29 +84,29 @@ function multiplayer() {
                     console.log(this.chance);
                     console.log(this.chance % 4);
                     if (this.userPick === 'rock') {
-                        this.aiPick = 'paper';
-                        this.computerScore++;
+                        this.opponentPick = 'paper';
+                        this.opponentScore++;
                     } else if (this.userPick === 'paper') {
-                        this.aiPick = 'scissors';
-                        this.computerScore++;
+                        this.opponentPick = 'scissors';
+                        this.opponentScore++;
                     } else if (this.userPick = 'scissors') {
-                        this.aiPick = 'rock';
-                        this.computerScore++;
+                        this.opponentPick = 'rock';
+                        this.opponentScore++;
                     } else {
                         this.userScore++;
                     }
                 }
-                if (this.computerScore === 10) {
-                    alert("COMPUTER WINS,YOU LOSE!");
-                    location.reload();
+                if (this.opponentScore === 10) {
+                    alert("Opponent wins,you lose!");
+                    //location.reload();
 
                 } else if (this.userScore === 10) {
                     alert("CONGRATULTIONS!, You Win");
-                    location.reload();
+                    //location.reload();
                 }
-                if (this.computerScore > this.userScore) {
-                    this.winning = "Computer is winning the game with " + this.computerScore + " points";
-                } else if (this.computerScore < this.userScore) {
+                if (this.opponentScore > this.userScore) {
+                    this.winning = "Computer is winning the game with " + this.opponentScore + " points";
+                } else if (this.opponentScore < this.userScore) {
                     this.winning = "user is winning the game with " + this.userScore + " points";
                 } else {
                     this.winning = "It's a draw";

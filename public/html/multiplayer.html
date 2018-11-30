@@ -20,13 +20,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script src="http://www.hivemq.com/demos/websocket-client/js/mqttws31.js" type="text/javascript"></script>
     <script src="../js/mqtt.js"></script>
-    <script src="../js/difficulty.js"></script>
+    <script src="../js/multiplayer.js"></script>
     <script src="../js/keyCheck_MP.js"></script>
-    <script>
-        window.onload = function() {
-            multiplayer();
-        }
-    </script>
 
 
 </head>
@@ -56,13 +51,10 @@
                     <div class="row">
                         <div>
                             <div class="row">
-                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
+                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
                                 <div class="col s2"></div>
-                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
-                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="choose('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
-                                </div>
-                                <div class="col s4">
-                                    <span>{{result}} <br> {{winning}}</span>
+                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
+                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +73,7 @@
                     <tbody>
                         <tr>
                             <td><em>{{userPick}}</em></td>
-                            <td><em>{{randPick}}</em></td>
+                            <td><em></em></td>
                         </tr>
 
                         <thead>
@@ -94,7 +86,7 @@
                         <tbody>
                             <tr>
                                 <td><span>{{ userScore }}</span></td>
-                                <td><span>{{ computerScore }}</span></td>
+                                <td><span>{{ opponentScore }}</span></td>
                             </tr>
                         </tbody>
                 </table>
@@ -102,20 +94,30 @@
             <div class="col s6">
 
                 <div>
-                    <button onclick="publish()">Publish</button><br>
-                    <textarea type="text" rows="1" cols="37" id="username" placeholder="username"></textarea>
-                    <textarea type="text" rows="4" cols="37" id="payload" placeholder="message"></textarea>
-                </div>
-                <div id="messages" class="chat">
-                    <h2>Incoming Messages</h2>
+                    <button onclick="publish(); document.getElementById('payload').value = ''">Send</button><br>
+                    <textarea class="inputField" type="text" rows="1" cols="40" id="username" placeholder="username"></textarea>
+                    <textarea class="inputField" type="text" rows="4" cols="40" id="payload" placeholder="message"></textarea>
+                    <div class="row">
+                        <div class="col s12 chat">
+                            <div class="z-depth-5" id="messages"></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
+    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
     <script src="../js/sounds.js"></script>
+
+    <script>
+        window.onload = function() {
+            multiplayer();
+            client.connect(options);
+        }
+    </script>
 
 </body>
 

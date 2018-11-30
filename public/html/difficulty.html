@@ -14,6 +14,7 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../img/icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="js/singleplayer-easy.js" type="application/javascript"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -296,6 +297,11 @@
         </div>
     </div>
     </div>
+
+    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
+    <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
+    <script src="../js/sounds.js"></script>
+
 </body>
 
 </html>
