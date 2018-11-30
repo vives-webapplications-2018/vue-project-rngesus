@@ -96,7 +96,7 @@ var publish = function (rps) {
     } else {
         test = getValue('#payload', settings.fallbackPayload);
         settings.fallbackusername = getValue('#username', settings.fallbackusername);
-        var message = new Messaging.Message((settings.fallbackusername) + ": " + (test));
+        var message = new Messaging.Message((escape(settings.fallbackusername)) + ": " + escape((test)));
     }
     message.destinationName = topic;
     message.qos = qos;
