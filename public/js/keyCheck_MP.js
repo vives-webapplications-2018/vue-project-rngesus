@@ -14,6 +14,6 @@ function keyDownTextField(e) {
         publish('scissors_grhgihrwhbuwr')
     } else if (keyCode == 13) {
         publish();
-        document.getElementById('payload').value = '';
+        document.getElementById('payload').value = ' ';
     }
 }
