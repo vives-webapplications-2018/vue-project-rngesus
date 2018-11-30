@@ -11,6 +11,6 @@ function keyDownTextField(e) {
         app.chooseUser('scissors');
     } else if (keyCode == 13) {
         publish();
-        document.getElementById('payload').value = ' ';
+        document.getElementById('payload').value = null;
     }
 }
