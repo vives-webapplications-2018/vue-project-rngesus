@@ -32,6 +32,11 @@ $app->get('/instructions', function (Request $request, Response $response, array
     return $this->renderer->render($response, '../public/html/instructions.html', $args);
 });
 
+$app->get('/login', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/login' route");
+    return $this->renderer->render($response, '../public/html/register_login.html', $args);
+});
+
 $app->get('/multiplayer', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/multiplayer' route");
     return $this->renderer->render($response, '../public/html/multiplayer.html', $args);

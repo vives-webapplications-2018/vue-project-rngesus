@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="icon" href="../../img/icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="js/singleplayer-easy.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="../js/keyCheck.js"></script>
+    <script src="../js/difficulty.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left hide-on-med-and-down ">
+                    <li><a href="javascript:javascript:history.go(-1)">Back</a></li>
+                </ul>
+                <a href="/" class="brand-logo center">RPS</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down ">
+                    <li><a href="/">Home</a></li>
+                    <li class=""><a href="/instructions">Instructions</a></li>
+                    <li><a href="/credits">Credits</a></li>
+                    <li><a href="/scoreboard">Scoreboard</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <form class="container-item" method="POST" action="">
+        <label for="username">Username</label>
+        <input name="username" id="username" type="text">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password">
+        <a href="#">Forgot your password?</a>
+        <input type="submit" value="Login" name="login">
+    </form>
+
+    <form method="POST" action="">
+        <label for="username">Username</label>
+        <input name="username" id="username" type="text">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password">
+        <label for="cpassword">Confirm Password</label>
+        <input name="cpassword" id="cpassword" type="password">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email">
+        <input type="submit" value="Register" name="Register">
+    </form>
+
+    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
+    <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
+    <script src="../js/sounds.js"></script>
+
+</body>
+
+</html>
