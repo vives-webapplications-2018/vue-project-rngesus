@@ -77,4 +77,7 @@ $app->get('/difficulty', function (Request $request, Response $response, array $
     return $this->renderer->render($response, '../public/html/difficulty.html', $args);
 });
 
-
+$app->get('/lobby', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/index' route");
+    return $this->renderer->render($response, '../public/html/lobby.html', $args);
+});
