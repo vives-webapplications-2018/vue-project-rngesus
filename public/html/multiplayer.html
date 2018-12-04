@@ -23,7 +23,6 @@
     <script src="../js/multiplayer.js"></script>
     <script src="../js/keyCheck_MP.js"></script>
 
-
 </head>
 
 <body onload="client.connect(options)">
@@ -45,22 +44,21 @@
 
     <div id="gameAppMulti">
         <div class="row">
-            <div class="col s1"></div>
-            <div class="col s5">
-                <div>
+            <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
+            <div class="col s1" id="spacing"><button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons muteButton">volume_off</button></div>
+            <script src="../js/sounds.js"></script>
+            <div class="col s5" id="buttonPosition">
+                <div class="row">
                     <div class="row">
-                        <div>
-                            <div class="row">
-                                <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
-                                <div class="col s2"></div>
-                                <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
-                                <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
-                                </div>
-                            </div>
+                        <div class="col s12"><button id="playButtonRock" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('rock')" onclick="publish('rock_grhgihrwhbuwr')"></button></div>
+                        <div class="col s2"></div>
+                        <div class="col s10"><button id="playButtonPaper" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('paper')" onclick="publish('paper_grhgihrwhbuwr')"></button></div>
+                        <div class="col s8"><button id="playButtonScissors" class="btn-floating btn-large waves-effect waves-light grey darken-1" @click="chooseUser('scissors')" onclick="publish('scissors_grhgihrwhbuwr')"></button></button>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="col s6">
                 <table class="centered">
                     <thead>
@@ -101,16 +99,11 @@
                         <div class="col s12 chat">
                             <div id="messages"></div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
-    <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
-    <script src="../js/sounds.js"></script>
 
     <script>
         window.onload = function() {
