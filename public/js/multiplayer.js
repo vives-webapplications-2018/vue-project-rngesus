@@ -79,23 +79,54 @@ function multiplayer() {
                         this.result = "Draw";
                     }
                 }
-                if (this.chance % 4 === 0) {
-                    console.log('Pc wins this time');
-                    console.log(this.chance);
-                    console.log(this.chance % 4);
-                    if (this.userPick === 'rock') {
-                        this.opponentPick = 'paper';
+                else if (this.userPick === 'null') {
+                    if (this.opponentPick === 'rock') {
+                        this.result = "opponent wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
                         this.opponentScore++;
-                    } else if (this.userPick === 'paper') {
-                        this.opponentPick = 'scissors';
-                        this.opponentScore++;
-                    } else if (this.userPick = 'scissors') {
-                        this.opponentPick = 'rock';
-                        this.opponentScore++;
-                    } else {
+                    } else if (this.opponentPick === 'paper') {
+                        this.result = "opponent wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
                         this.userScore++;
+                    } else {
+                        this.result = "opponent wins";
+                        this.opponentScore++;
                     }
                 }
+                else if (this.opponentPick === 'null') {
+                    if (this.userPick === 'rock') {
+                        this.result = "user wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
+                        this.userScore++;
+                    } else if (this.userPick === 'paper') {
+                        this.result = "user wins";
+                        app.userPick = app.userPick + " ";
+                        app.opponentPick = app.opponentPick + " ";
+                        this.userScore++;
+                    } else {
+                        this.result = "user wins";
+                        this.userScore++;
+                    }}
+                // if (this.chance % 4 === 0) {
+                //     console.log('Pc wins this time');
+                //     console.log(this.chance);
+                //     console.log(this.chance % 4);
+                //     if (this.userPick === 'rock') {
+                //         this.opponentPick = 'paper';
+                //         this.opponentScore++;
+                //     } else if (this.userPick === 'paper') {
+                //         this.opponentPick = 'scissors';
+                //         this.opponentScore++;
+                //     } else if (this.userPick = 'scissors') {
+                //         this.opponentPick = 'rock';
+                //         this.opponentScore++;
+                //     } else {
+                //         this.userScore++;
+                //     }
+                // }
                 if (this.opponentScore === 10) {
                     alert("Opponent wins,you lose!");
                     //location.reload();
