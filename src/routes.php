@@ -81,3 +81,11 @@ $app->get('/lobby', function (Request $request, Response $response, array $args)
     $this->logger->info("GET '/index' route");
     return $this->renderer->render($response, '../public/html/lobby.html', $args);
 });
+
+$app->post('/lobby/new', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/index' route");
+    $title = $_POST["title"];
+    $password = $_POST["password"];
+    return "hello  $title  $password";
+    //return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
+});
