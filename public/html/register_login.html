@@ -42,26 +42,69 @@
             </div>
     </nav>
 
-    <form class="container-item" method="POST" action="">
-        <label for="username">Username</label>
-        <input name="username" id="username" type="text">
-        <label for="password">Password</label>
-        <input name="password" id="password" type="password">
-        <a href="#">Forgot your password?</a>
-        <input type="submit" value="Login" name="login">
-    </form>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="username" id="username" type="text" class="validate">
+              <label for="first_name">Username</label>
+            </div>
+        
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div> </div>
+          <div class="row" ><a href="#">Forgot your password?</a></div>
+         
+          <button class="btn waves-effect waves-light" type="submit"  value="Login" name="login" name="action">Login
+            <i class="material-icons right">send</i>
+          </button>
+        
+        </form>
+      </div>
 
-    <form method="POST" action="">
-        <label for="username">Username</label>
-        <input name="username" id="username" type="text">
-        <label for="password">Password</label>
-        <input name="password" id="password" type="password">
-        <label for="cpassword">Confirm Password</label>
-        <input name="cpassword" id="cpassword" type="password">
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email">
-        <input type="submit" value="Register" name="Register">
-    </form>
+
+
+
+
+
+
+
+     <div class="row">
+      <form method="POST" action="" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Username" id="username" type="text" class="validate">
+            <label for="first_name">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name ="password" id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <input name ="confirmpassword" id="confirmpassword" type="password" class="validate">
+              <label for="confirmpassword">Confirm Password</label>
+            </div>
+          </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit"  value="register" name="register" name="action">Register
+            <i class="material-icons right">send</i>
+          </button>
+      </form>
+    </div>
+          
+
 
     <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
