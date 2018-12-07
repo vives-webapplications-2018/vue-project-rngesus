@@ -14,8 +14,8 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../../img/icon.png">
-
-    <script src="../js/javascript.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="../js/lobby.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://authedmine.com/lib/authedmine.min.js"></script>
 
@@ -39,11 +39,44 @@
             </div>
     </nav>
     <div class="background">
-        <ul class="center">
-            <li><a href="/multiplayer" class="waves-effect waves-light btn buttons">join lobby</a></li>
-            <li><a href="/" class="waves-effect waves-light btn buttons">create lobby</a></li>
 
-        </ul>
+        <div id="createButton" class="">
+            <ul class="center">
+                <li><a href="/multiplayer" class="waves-effect waves-light btn buttons">join lobby</a></li>
+                <li><a onclick="show()" class="waves-effect waves-light btn buttons">create lobby</a></li>
+            </ul>
+        </div>
+
+
+        <div id="lobby" class="hidden">
+            <div class="row">
+                <form action="/lobby/new" method="post" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input name="title" id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">Lobby Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">lock</i>
+                            <input name="password" id="icon_lock" type="password" class="validate">
+                            <label for="icon_lock">password</label>
+                        </div>
+                    </div>
+                    <div class="center" >
+                            <div id="postButton" class="hidden">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+        
+
+
 </body>
 
 </html>
