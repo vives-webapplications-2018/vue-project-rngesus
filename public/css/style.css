@@ -83,3 +83,15 @@ h1 {
 .inputField {
     color: #fafafa;
 }
+
+#buttonPosition {
+    padding-top: 80px;
+}
+
+#spacing {
+    height: 75vh;
+}
+
+.muteButton {
+    top: 100%;
+}
