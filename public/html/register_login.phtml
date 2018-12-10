@@ -43,7 +43,7 @@
     </nav>
 
     <div id="login"  class="hidden row">
-        <form method="POST" action="" class="col s12">
+        <form method="POST" action="loginIndex.php?actie=login" class="col s12">
           <div class="row">
             <div class="input-field col s6">
               <input placeholder="username" id="username" type="text" class="validate">
@@ -66,35 +66,29 @@
       </div>
 
 
-
-
-
-
-
-
-     <div id="register" class="hidden row ">
-      <form method="POST" action="" class="col s12">
+     <div id="register" class="row ">
+      <form method="post" action="/register" class="col s12">
         <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Username" id="username" type="text" class="validate">
+          <div class="input-field col s6"> 
+            <input placeholder="Username" name="username" id="username" type="text" class="validate" required >
             <label for="first_name">Username</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input name ="password" id="password" type="password" class="validate">
+            <input name ="password" id="password" type="password" class="validate" required>
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-              <input name ="confirmpassword" id="confirmpassword" type="password" class="validate">
+              <input name ="confirmpassword" id="confirmpassword" type="password" class="validate" required>
               <label for="confirmpassword">Confirm Password</label>
             </div>
           </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" class="validate" required>
             <label for="email">Email</label>
           </div>
         </div>
@@ -103,10 +97,6 @@
           </button>
       </form>
     </div>
-  
-          
-
-
     <audio src="../Audio/RPS.wav" id="my_audio" loop="loop"></audio>
     <button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons">volume_off</button>
     <script src="../js/sounds.js"></script>
@@ -114,3 +104,6 @@
 </body>
 
 </html>
+
+
+

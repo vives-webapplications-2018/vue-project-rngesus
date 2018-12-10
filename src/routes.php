@@ -34,7 +34,7 @@ $app->get('/instructions', function (Request $request, Response $response, array
 
 $app->get('/login', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/login' route");
-    return $this->renderer->render($response, '../public/html/register_login.html', $args);
+    return $this->renderer->render($response, '../public/html/register_login.phtml', $args);
 });
 
 $app->get('/multiplayer', function (Request $request, Response $response, array $args) {
@@ -89,3 +89,16 @@ $app->post('/lobby/new', function (Request $request, Response $response, array $
     return "hello  $title  $password";
     //return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
 });
+$app->post('/register', function (Request $request, Response $response, array $args) {
+
+    $this->logger->info("GET '/index' route");
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    
+    //$email = $_POST["email"];
+    return "hello  $username  $password";
+    // $rngesus->save();
+    //return $this->renderer->render($response, '../public/html/register_login.phtml', $args);
+});
+
+
