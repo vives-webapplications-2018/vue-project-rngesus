@@ -3,6 +3,7 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use \App\Models\User;
+use \App\Models\Lobby;
 use \App\Models\Container;
 
 // Routes
@@ -86,6 +87,10 @@ $app->post('/lobby/new', function (Request $request, Response $response, array $
     $this->logger->info("GET '/index' route");
     $title = $_POST["title"];
     $password = $_POST["password"];
+    $lobby = new Lobby(); 
+    $lobby->title = "$title";
+    $lobby->password = "$password";
+    $lobby->save();
     return "hello  $title  $password";
     //return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
 });
