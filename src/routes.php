@@ -92,10 +92,20 @@ $app->post('/register', function (Request $request, Response $response, array $a
     $user->username = $username;
     $user->password = $password;
     $user->email = $email;
-    $user->score = 222;
+    $user->score = 0;
     $user->save();
     return $response->withRedirect('/index', 301);
-    //return $this->renderer->render($response, '../public/html/register_login.phtml', $args);
+ 
+});
+$app->get('/loggedin/{id}/edit', function (Request $request, Response $response, array $args) {
+
+    $this->logger->info("GET '/loggedin/{id}' route");
+    $user = new User();
+    $user = User::find(2);
+    $user->score =  100;
+    $user->save();
+    return $response->withRedirect('/index', 301);
+ 
 });
 
 
