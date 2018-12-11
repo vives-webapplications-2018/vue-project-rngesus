@@ -22,6 +22,7 @@
     <script src="../js/mqtt.js"></script>
     <script src="../js/multiplayer.js"></script>
     <script src="../js/keyCheck_MP.js"></script>
+    <script src="../js/rounds.js"></script>
 
 </head>
 
@@ -42,11 +43,13 @@
             </div>
     </nav>
 
+    <div id="status"></div>
+
     <div id="gameAppMulti">
         <div class="row">
+            <script src="../js/sounds.js"></script>
             <audio src="../Audio/RPS.wav" id="my_audio" loop="loop" autoplay="autoplay"></audio>
             <div class="col s1" id="spacing"><button id="mute" class="btn-floating btn-large waves-effect waves-light grey darken-3 large material-icons muteButton">volume_off</button></div>
-            <script src="../js/sounds.js"></script>
             <div class="col s5" id="buttonPosition">
                 <div class="row">
                     <div class="row">
@@ -58,6 +61,7 @@
                     </div>
                 </div>
             </div>
+            <div id="status"></div>
 
             <div class="col s6">
                 <table class="centered">
@@ -111,6 +115,16 @@
             client.connect(options);
         }
     </script>
+
+    <div id="overlay" onclick="off()">
+        <div id="text">Overlay Text</div>
+    </div>
+
+    <div style="padding:20px">
+        <button onclick="on()">Turn on overlay effect</button>
+    </div>
+
+    <button onclick="countDown(10, 'status' )">Start</button>
 
 </body>
 

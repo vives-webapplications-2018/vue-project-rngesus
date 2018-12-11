@@ -32,8 +32,8 @@ function multiplayer() {
                 console.log("opponent picked" + opponent_pick);
                 const picks = ['rock', 'paper', 'scissors'];
                 this.opponentPick = opponent_pick;
-                    this.setScore();
-                
+                this.setScore();
+
             },
             setScore: function() {
                 if (this.userPick === 'rock') {
@@ -146,3 +146,23 @@ function multiplayer() {
         }
     })
 };
+
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+function countDown(secs, elem) {
+    var element = document.getElementById(elem);
+    element.innerHTML = secs;
+    if (secs < 1) {
+        clearTimeout(timer);
+        element.innerHTML = 'on()';
+    }
+    secs--;
+    var timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
+}
+countDown(10, "status");
