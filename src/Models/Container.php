@@ -29,4 +29,7 @@ class Container
     public function encode($string){
         echo htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
     }
+    public function script($string){
+        echo '<script>' . $string . '</script>';
+    }
 }

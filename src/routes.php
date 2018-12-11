@@ -79,8 +79,11 @@ $app->post('/lobby/new', function (Request $request, Response $response, array $
     $lobby->title = "$title";
     $lobby->password = "$password";
     $lobby->save();
-    return "hello  $title  $password";
-    //return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
+    $token = $lobby->id; 
+    Container::script("settings.topic = \"rps-chat-\" + $token");
+    Container::script("client.connect(options);");
+    //return " $title  $password $token";
+    return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
 });
 $app->post('/register', function (Request $request, Response $response, array $args) {
 

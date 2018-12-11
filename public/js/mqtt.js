@@ -4,6 +4,7 @@ var settings = {
     port: 8080,
     subscriptionFallbackTopic: 'rps-chat',
     publishFallbackTopic: 'rps-chat',
+    topic: '',
     fallbackQoS: 0,
     fallbackPayload: 'test',
     fallbackusername: '',
@@ -15,7 +16,7 @@ var settings = {
     rps: ''
 };
 
-function randomValue() {
+    function randomValue() {
     return Math.floor(Math.random() * 90000) + 10000;
 }
 
@@ -78,7 +79,7 @@ var getValue = function (id, fallback) {
 
 // Subscribes to a given topic with a given QoS
 var subscribe = function () {
-    var topic = 'rps-chat';
+    topic = settings.topic;
     var qos = 0;
     client.subscribe(topic);
     sendID();
@@ -87,7 +88,7 @@ var subscribe = function () {
 //Creates a new Messaging.Message Object and sends it to the HiveMQ MQTT Broker
 var publish = function (rps) {
     //Send your message (also possible to serialize it as JSON or protobuf or just use a string, no limitations)
-    var topic = 'rps-chat';
+    topic = settings.topic; 
     var qos = 0;
 
     if (rps == "rock_grhgihrwhbuwr" || rps == "paper_grhgihrwhbuwr" || rps == "scissors_grhgihrwhbuwr") {
@@ -104,10 +105,10 @@ var publish = function (rps) {
 };
 
 var sendID = function () {
-    var topic = 'rps-chat';
+    topic = settings.topic;
     var qos = 0;
     var message = new Messaging.Message('opponentID_' + settings.userID);
     message.destinationName = topic;
     message.qos = qos;
     client.send(message);
-}
+};
