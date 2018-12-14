@@ -15,7 +15,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $app->get('/scoreboard', function (Request $request, Response $response, array $args) {
     $this->logger->info("GET '/scoreboard' route");
     $users = User::orderBy('score', 'DESC')->get();
-    Container::table();
+    Container::tableScore();
     foreach ($users as $User) {
         Container::container($User->username , $User->score);  
     }
@@ -109,4 +109,13 @@ $app->post('/register', function (Request $request, Response $response, array $a
     //return $this->renderer->render($response, '../public/html/register_login.phtml', $args);
 });
 
-
+$app->get('/joinlobby', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/joinlobby' route");
+    $lobbys = Lobby::orderBy('date', 'DESC')->get();
+    Container::tableLobby();
+    foreach ($lobbys as $Lobby) {
+        Container::container($Lobby->title , $Lobby->date);  
+    }
+    Container::tableEnd();
+    return $this->renderer->render($response, '../public/html/joinlobby.html', $args);
+});

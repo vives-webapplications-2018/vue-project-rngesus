@@ -10,7 +10,18 @@ class Container
                 <td>' . $score . '</td>
                 </tr>';
     }
-    public function table()
+    public function tableScore()
+    {
+        echo '<table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>';
+    }
+    public function tableLobby()
     {
         echo '<table>
                 <thead>
