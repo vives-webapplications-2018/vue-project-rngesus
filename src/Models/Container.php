@@ -26,8 +26,8 @@ class Container
         echo '<table>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Score</th>
+                    <th>Lobbyname</th>
+                    <th>Date</th>
                 </tr>
                 </thead>
                 <tbody>';
