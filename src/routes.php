@@ -57,18 +57,6 @@ $app->get('/mode', function (Request $request, Response $response, array $args) 
     $this->logger->info("GET '/mode' route");
     return $this->renderer->render($response, '../public/html/mode.html', $args);
 });
-// $app->get('/impossible', function (Request $request, Response $response, array $args) {
-//     $this->logger->info("GET '/mode' route");
-//     return $this->renderer->render($response, '../public/html/impossible.html', $args);
-// });
-// $app->get('/hard', function (Request $request, Response $response, array $args) {
-//     $this->logger->info("GET '/mode' route");
-//     return $this->renderer->render($response, '../public/html/hard.html', $args);
-// });
-// $app->get('/med', function (Request $request, Response $response, array $args) {
-//     $this->logger->info("GET '/mode' route");
-//     return $this->renderer->render($response, '../public/html/med.html', $args);
-// });
  $app->get('/easy', function (Request $request, Response $response, array $args) {
      $this->logger->info("GET '/play' route");
      return $this->renderer->render($response, '../public/html/easy.html', $args);
@@ -100,13 +88,27 @@ $app->post('/lobby/new', function (Request $request, Response $response, array $
 $app->post('/register', function (Request $request, Response $response, array $args) {
 
     $this->logger->info("GET '/index' route");
+    $user = new User();
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-    //$email = $_POST["email"];
-    return "hello  $username  $password";
-    $rngesus->save();
-    //return $this->renderer->render($response, '../public/html/register_login.phtml', $args);
+    $email = $_POST["email"];
+    $user->username = $username;
+    $user->password = $password;
+    $user->email = $email;
+    $user->score = 0;
+    $user->save();
+    return $response->withRedirect('/index', 301);
+ 
+});
+$app->get('/loggedin/{id}/edit', function (Request $request, Response $response, array $args) {
+
+    $this->logger->info("GET '/loggedin/{id}' route");
+    $user = new User();
+    $user = User::find(2);
+    $user->score =  100;
+    $user->save();
+    return $response->withRedirect('/index', 301);
+ 
 });
 
 $app->get('/joinlobby', function (Request $request, Response $response, array $args) {

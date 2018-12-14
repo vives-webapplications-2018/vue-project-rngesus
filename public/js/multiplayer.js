@@ -78,8 +78,7 @@ function multiplayer() {
                     } else {
                         this.result = "Draw";
                     }
-                }
-                else if (this.userPick === 'null') {
+                } else if (this.userPick === 'null') {
                     if (this.opponentPick === 'rock') {
                         this.result = "opponent wins";
                         app.userPick = app.userPick + " ";
@@ -94,8 +93,7 @@ function multiplayer() {
                         this.result = "opponent wins";
                         this.opponentScore++;
                     }
-                }
-                else if (this.opponentPick === 'null') {
+                } else if (this.opponentPick === 'null') {
                     if (this.userPick === 'rock') {
                         this.result = "user wins";
                         app.userPick = app.userPick + " ";
@@ -109,7 +107,8 @@ function multiplayer() {
                     } else {
                         this.result = "user wins";
                         this.userScore++;
-                    }}
+                    }
+                }
                 // if (this.chance % 4 === 0) {
                 //     console.log('Pc wins this time');
                 //     console.log(this.chance);
@@ -154,15 +153,3 @@ function on() {
 function off() {
     document.getElementById("overlay").style.display = "none";
 }
-
-function countDown(secs, elem) {
-    var element = document.getElementById(elem);
-    element.innerHTML = secs;
-    if (secs < 1) {
-        clearTimeout(timer);
-        element.innerHTML = 'on()';
-    }
-    secs--;
-    var timer = setTimeout('countDown(' + secs + ',"' + elem + '")', 1000);
-}
-countDown(10, "status");
