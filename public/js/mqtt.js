@@ -1,7 +1,7 @@
 // Settings
 var settings = {
-    brokerUrl: 'test.mosquitto.org',
-    port: 8080,
+    brokerUrl: 'labict.be',
+    port: 1884,
     subscriptionFallbackTopic: 'rps-chat',
     publishFallbackTopic: 'rps-chat',
     topic: '',

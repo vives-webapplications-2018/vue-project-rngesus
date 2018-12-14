@@ -116,8 +116,17 @@ $app->get('/joinlobby', function (Request $request, Response $response, array $a
     $lobbys = Lobby::orderBy('date', 'DESC')->get();
     Container::tableLobby();
     foreach ($lobbys as $Lobby) {
-        Container::container($Lobby->title , $Lobby->date);  
+        Container::containerLobbys($Lobby->title , $Lobby->date,$Lobby->id);  
     }
     Container::tableEnd();
     return $this->renderer->render($response, '../public/html/joinlobby.html', $args);
+});
+
+$app->get('/joinlobby/{id}', function (Request $request, Response $response, array $args) {
+    $this->logger->info("GET '/joinlobby' route");
+    $lobby = new Lobby(); 
+    $token = $request->getAttribute('id');
+    Container::script("settings.topic = \"rps-chat-\" + $token");
+    Container::script("client.connect(options);");
+    return $this->renderer->render($response, '../public/html/multiplayer.html', $args);
 });

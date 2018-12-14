@@ -10,6 +10,16 @@ class Container
                 <td>' . $score . '</td>
                 </tr>';
     }
+    public function containerLobbys($username, $score,$id)
+    {
+        echo    '<tr>
+                <td>' . $username . '</td>
+                <td>' . $score . '</td>
+                <td> <a href="/joinlobby/'. $id .'" class="btn waves-effect waves-light"  name="action">join
+                <i class="material-icons right">send</i>
+              </a> </td>
+                </tr>';
+    }
     public function tableScore()
     {
         echo '<table>
